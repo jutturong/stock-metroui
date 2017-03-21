@@ -25,11 +25,18 @@
     </div>
     <!-- Head menu -->
     
+    <!--  PAGE Content -->
     <div class="page-content">
+        
+        
+        <!--  Content 1  class="bg-lightBlue fg-white align-center"
         <div class="bg-lightBlue fg-white align-center">
             <div class="container">
                 <div class="no-overflow" style="padding-top: 40px">
-
+                    
+                    
+                    <h1> content1 </h1>
+                    
                     @@adsense
 
                     <br />
@@ -102,12 +109,30 @@
                             }, 500);
                         });
                     </script>
+                    
+                    
+                    
                 </div>
+                
+                
+                
             </div>
         </div>
+      Content 1  class="bg-lightBlue fg-white align-center"       -->
+        
+        
 
         <div class="fg-dark">
             <div class="container">
+                
+                <!--  เนื้อหาจาก DB -->
+                <div class="padding10" style="padding-top: 20px; padding-left: 10px; ">
+                     <?=@$this->load->view($content)?>
+                </div>
+               <!--  เนื้อหาจาก DB -->
+                 
+                 
+                <!--
                 <div class="padding80" style="padding-top: 40px">
                     <div class="">
                         <div class="grid">
@@ -194,10 +219,20 @@
                         </ul>
                     </div>
                 </div>
+                -->
+                
+                
+                
             </div>
         </div>
 
+        
+         <!--   Content2 class="bg-steel no-tablet-portrait no-phone"
         <div class="bg-steel no-tablet-portrait no-phone">
+            
+            <h1>content3</h1>
+            
+           
             <div class="container padding20 fg-white">
                 <div class="carousel bg-transparent" data-role="carousel" data-controls="false" data-markers="false" data-effect="fade" data-height="200">
                     <div class="slide fg-white">
@@ -229,14 +264,21 @@
                     </div>
                 </div>
             </div>
+            
+            
+            
         </div>
+     Content2 class="bg-steel no-tablet-portrait no-phone"   -->
+        
+        
+        
     </div>
+    <!--  PAGE Content -->
     
     <div>
         <?=$this->load->view("footer")?>
     </div>
 
-    @@hit
-
 </body>
+
 </html>

@@ -14,6 +14,8 @@
     <link href="<?=base_url()?>node_modules/metro-ui/docs/css/metro-schemes.css" rel="stylesheet">
 
     <link href="<?=base_url()?>node_modules/metro-ui/docs/css/docs.css" rel="stylesheet">
+    
+        
 
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/jquery-2.1.3.min.js"></script>
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/metro.js"></script>
@@ -21,6 +23,6 @@
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/prettify/run_prettify.js"></script>
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/ga.js"></script>
 
-    <!--
+    
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-     -->
+     

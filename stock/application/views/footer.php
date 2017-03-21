@@ -1,5 +1,8 @@
 <footer style="background-color: #EFEAE3">
     <div class="container">
+        
+        
+        <!--
         <div class="padding20">
             <div class="grid">
 
@@ -64,20 +67,21 @@
                 </div>
             </div>
         </div>
-
+        -->
+        
+       <!--
         <div class="padding20">
             @@adsense
         </div>
-
+    -->
+    
+    
         <div class="align-center padding20 text-small">
-            Copyright 2017  Power BY : golf-unix </a>
+              <span class="mif-copyright mif-2x"></span>
+              Copyright 2017  Power BY : golf </a>
         </div>
+    
     </div>
 </footer>
 
 
-<script>
-    $(function(){
-        //jQuery.getScript("//212.90.50.159:3000/js/so_init.js", function(data, textStatus, jqxhr){});
-    })
-</script>
