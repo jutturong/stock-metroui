@@ -23,13 +23,11 @@
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/prettify/run_prettify.js"></script>
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/ga.js"></script>
 
-    <!--
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    -->
-    
-  <!--  
-   <link href="<?=base_url()?>Retina-Zoomer-master/css/bootstrap.css" rel="stylesheet">
-    <link href="<?=base_url()?>Retina-Zoomer-master/fonts/fonts.css" rel="stylesheet">
-    
-    <link href="<?=base_url()?>Retina-Zoomer-master/css/styles.css" rel="stylesheet">  
-    -->
+   
+<!-- zoom -->    
+
+ <!-- zoom -->   
+   
+
+     
+      

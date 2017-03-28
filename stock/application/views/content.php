@@ -7,7 +7,9 @@
 </script>
 
 <script type="text/javascript">  
-   $('#zoom_01').zoom();
+   //$('#zoom_01').zoom();
+   //$('.mobile-container').retina({zoomValue: 400});
+   $('#zoom_01').retina({zoomValue: 400});
 </script>
 
 
@@ -61,6 +63,7 @@
                                                    
    
                                                    <?=br()?>
+                                                      
                                                       <img  id="zoom_01"    srcset='<?=base_url()?>picture/20170119_1060891.jpg 1x, <?=base_url()?>picture/20170119_1060891.jpg 2x'   class="icon" src="<?=base_url()?>picture/20170119_1060891.jpg" style="width:100px;"   />
 
                                                 </div>

@@ -13,6 +13,8 @@
             <file>file:/Library/WebServer/Documents/stock/application/config/autoload.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/footer.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/login.php</file>
+            <file>file:/Library/WebServer/Documents/stock/report_pdf/stock/querydb.php</file>
+            <file>file:/Library/WebServer/Documents/stock/report_pdf/stock/dbreport.php</file>
         </group>
     </open-files>
 </project-private>

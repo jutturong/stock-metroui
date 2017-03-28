@@ -183,7 +183,7 @@
                     <li><a href="http://forum.metroui.org.ua"><span class="mif-bubbles mif-1x fg-white"></span> ติดต่อเราทาง LINE@</a></li>
                     <li><a href="https://github.com/olton/Metro-UI-CSS"><span class="mif-shop mif-1x fg-white"></span> แจ้งคืนสินค้า</a></li>
                     <li class="divider"></li>
-                    <li><a href="license.html"><span class="mif-keyboard mif-1x fg-white"></span> ออกใบเสร็จ</a></li>
+                    <li><a href="<?=base_url()?>report_pdf/stock/dbreport.php" target="_blank"><span class="mif-keyboard mif-1x fg-white"></span> ออกใบเสร็จ</a></li>
                 </ul>
             </li>
             
@@ -201,9 +201,11 @@
             
             <li>
                  <a href="/" class="app-bar-element branding">
+                                
+                     <span id="value_baseket"></span>  
+
              <span class="mif-shopping-basket mif-2x fg-white"></span>
           <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
-             <span id="value_baseket"></span>  รายการ
             
         </a>
             </li>
