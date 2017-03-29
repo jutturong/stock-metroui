@@ -68,7 +68,7 @@ class Welcome extends CI_Controller {
                  }
           
         }
-        
+       //http://localhost/stock/index.php/welcome/mainconent 
         public function  mainconent() //หน้าหลักโปรแกรม
         {
                     // $data["content"]="content";

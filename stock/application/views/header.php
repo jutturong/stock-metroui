@@ -57,6 +57,15 @@
             -->
             
             
+             <li>
+                 <a href="#"  onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/mainconent/');  "  class="app-bar-element branding">
+             <span class="mif-apps mif-2x" style="color: white;"></span>
+          <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
+          หน้าหลัก
+            
+        </a>
+            </li>
+            
             <li>
                 <a href="#" class="dropdown-toggle">
                      <span class="mif-file-picture mif-1x fg-white"></span>
@@ -168,7 +177,7 @@
                     <span class="mif-user mif-1x fg-white"></span>
                     สมาชิก <?php  echo  $sess_point;  ?> Point </a> 
                 <ul class="d-menu" data-role="dropdown" data-no-close="true">
-                    <li><a href="templates/start-screen.html"><span class="mif-gift mif- 1x fg-white"></span> คะแนนสะสม</a></li>
+                    <li><a href="templates/start-screen.html"><span class="mif-gift mif- 1x fg-white"></span>  แต้มสะสม</a></li>
                     <li><a href="templates/news-portal.html"><span class="mif-user-plus mif-1x fg-white"></span> เปลี่ยนรหัสผ่าน</a></li>
                     <li><a href="templates/login.html"><span class="mif-upload mif-1x fg-white"></span> เติมเงิน</a></a></li>
                     <li><a href="templates/admin-sidebar-appbar.html"><span class="mif-profile mif-1x fg-white"></span> โปรโมชั่นสินค้า</a></li>
@@ -180,10 +189,11 @@
                      <span class="mif-credit-card mif-1x fg-white"></span>
                     บริการลูกค้า</a>
                 <ul class="d-menu" data-role="dropdown" data-no-close="true">
-                    <li><a href="http://forum.metroui.org.ua"><span class="mif-bubbles mif-1x fg-white"></span> ติดต่อเราทาง LINE@</a></li>
-                    <li><a href="https://github.com/olton/Metro-UI-CSS"><span class="mif-shop mif-1x fg-white"></span> แจ้งคืนสินค้า</a></li>
+                    <!--<li><a href="http://forum.metroui.org.ua"><span class="mif-bubbles mif-1x fg-white"></span> ติดต่อเราทาง LINE@</a></li>-->
+                   <!-- <li><a href="https://github.com/olton/Metro-UI-CSS"><span class="mif-shop mif-1x fg-white"></span> แจ้งคืนสินค้า</a></li> -->
                     <li class="divider"></li>
-                    <li><a href="<?=base_url()?>report_pdf/stock/dbreport.php" target="_blank"><span class="mif-keyboard mif-1x fg-white"></span> ออกใบเสร็จ</a></li>
+                      <li><a href="https://github.com/olton/Metro-UI-CSS"><span class="mif-gas-station mif-1x fg-white"></span> รายการสินค้าที่ซื้อทั้งหมด</a></li>
+                    <li><a href="<?=base_url()?>report_pdf/stock/dbreport.php" target="_blank"><span class="mif-keyboard mif-1x fg-white"></span> ออกใบเสร็จ / ชำระสินค้า </a></li>
                 </ul>
             </li>
             
@@ -210,14 +220,7 @@
         </a>
             </li>
             
-            <li>
-                 <a href="<?=base_url()?>index.php/welcome/index/" class="app-bar-element branding">
-             <span class="mif-switch mif-1x fg-white"></span>
-          <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
-          ออกจากระบบ
-            
-        </a>
-            </li>
+          
             
            <?php
            if( $sess_level==1)
@@ -242,6 +245,17 @@
             <?php
            }
             ?>
+            
+            
+              <li>
+                 <a href="<?=base_url()?>index.php/welcome/index/" class="app-bar-element branding">
+             <span class="mif-switch mif-1x fg-white"></span>
+          <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
+          ออกจากระบบ
+            
+        </a>
+            </li>
+            
         </ul>
 
         <span class="app-bar-pull"></span>

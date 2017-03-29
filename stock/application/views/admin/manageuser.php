@@ -1,13 +1,22 @@
 <script type="text/javascript">
-    
+    /*
       $(function(){
                         $("#tabcontrol).tabcontrol({
                             onTabClick: function(tab){...},
                             onTabChange: function(tab){...}
                         });
                     })
-     
+     */
+    
+
+   
+    
+    
 </script>
+
+
+
+
 
 <!-- window  manage user -->  
 <!--
@@ -61,6 +70,8 @@
 -->
 <!-- window  manage user -->
 
+<?=br()?>  <?=br()?> <?=br()?>
+
 <!--  TAB control -->
 <div class="tabcontrol2 tabs-bottom" data-role="tabcontrol">
     
@@ -79,7 +90,7 @@
                                 <div class="frame" id="frame_6_1">
                                     
                                 <!-- window  manage user -->
-                                <button class="button warning"><span class="mif-satellite"></span> Edit / Update </button>
+                                <button class="button warning" ><span class="mif-satellite"></span> Edit / Update </button>
                                 <button class="button danger"><span class="mif-pause"></span> Delete User</button>
                                 
                                 <div class="cell">
@@ -101,12 +112,12 @@
                                 <table class="table striped hovered cell-hovered border bordered">
                                     <thead>
                                         <tr>
-                                            <th class="sortable-column ">UserName</th>
-                                             <th class="sortable-column ">ชื่อ</th>
-                                              <th class="sortable-column ">นามสกุล</th>
-                                               <th class="sortable-column ">ระดับการใช้งาน</th>
-                                              <th class="sortable-column ">อนุญาตใช้งาน</th>
-                                              <th class="sortable-column ">แต้ม (Point)</th>
+                                            <th class="sortable-column "><span class="mif-user mif-2x"></span>UserName/ ชื่อ-นามสกุล</th>
+                                          <!--   <th class="sortable-column ">ชื่อ</th> -->
+                                         <!--     <th class="sortable-column ">นามสกุล</th> -->
+                                               <th class="sortable-column "><span class="mif-page-break mif-2x"></span>  ระดับการใช้งาน (Level)</th>
+                                              <th class="sortable-column "><span class="mif-thumbs-up mif-2x"></span>  อนุญาตใช้งาน/ Block User</th>
+                                              <th class="sortable-column "><span class="mif-dollar mif-2x"></span>  แต้ม (Point)</th>
                                         </tr>
                                        
                                     </thead>
@@ -120,15 +131,40 @@
                                                      
                                                     
      
-                                                     <label class="input-control radio">
-    <input type="radio">
+ <label class="input-control radio">
+     <input type="radio" id="<?=$row->id_member?>" name="id_member"  onchange="Dialoguser()">
     <span class="check"></span>
-    <span class="caption"><?=$row->us?></span>
+    <span class="caption">
+                                                    
+                                                    
+        
+        
+        <span data-role="hint"
+    data-hint-background="bg-black"
+    data-hint-color="fg-white"
+    data-hint-mode="2"
+    data-hint="<?=$row->name?>  <?=$row->lastname?>"
+><?=$row->us?>  (<?=$row->name?>  <?=$row->lastname?>) </span>
+    
+    </span>
 </label>
                                             
                                                  </td>
-                                                 <td><?=$row->name?></td>
-                                                 <td><?=$row->lastname?></td>
+                                                 
+                                                 <!--
+                                                 <td>
+
+                                                     <span data-role="hint"
+    data-hint-background="bg-green"
+    data-hint-color="fg-white"
+    data-hint-mode="2"
+    data-hint="<?=$row->name?>  <?=$row->lastname?>"
+><?=$row->name?></span>
+                                                     
+                                                 </td>
+                                                 -->
+                                                 
+                                          <!--       <td><?=$row->lastname?></td>  -->
                                                   <td><?=$row->level?></td>
                                                    <td><?=$row->authentic?></td>
                                                        <td><?=$row->point?></td>
@@ -155,3 +191,6 @@
                             
                         </div>
 <!--  TAB control -->
+
+
+
