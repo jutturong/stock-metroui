@@ -219,9 +219,39 @@
         </a>
             </li>
             
+           <?php
+           if( $sess_level==1)
+           {   
+           ?>
+            <li>
+                  <a href="#" class="dropdown-toggle" >
+             <span class="mif-cogs mif-2x fg-black"></span>
+          <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
+            Administrator
+        </a>
+                
+                <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                    <li><a  href="#"   onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/manageuser');   "   ><span class="mif-user-plus mif-1x fg-black"></span> Manage User</a></li>
+                    <li><a href="#"><span class="mif-tags mif-1x fg-black"></span> Billing ร้านค้า/ลูกค้า</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" ><span class="mif-clipboard mif-1x fg-black"></span> เพิ่มรายการสินค้า </a></li>
+                </ul>
+                
+                
+            </li>
+            <?php
+           }
+            ?>
         </ul>
 
         <span class="app-bar-pull"></span>
 
     </div>
 </header>
+
+
+
+
+
+
+

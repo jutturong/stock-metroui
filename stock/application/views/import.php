@@ -15,6 +15,8 @@
 
     <link href="<?=base_url()?>node_modules/metro-ui/docs/css/docs.css" rel="stylesheet">
     
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   
         
 
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/jquery-2.1.3.min.js"></script>
@@ -27,7 +29,13 @@
 <!-- zoom -->    
 
  <!-- zoom -->   
+ 
+ 
+
+
    
+
+  
 
      
       

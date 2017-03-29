@@ -2,23 +2,13 @@
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
-    
                var  $title=" Welcome   to  System  Service ";
+               
+               public function __construct() {
+                   parent::__construct();
+                     $this->load->model("user_model");
+               }
+               
 	public function index()
 	{
 		//$this->load->view('welcome_message');
@@ -69,15 +59,33 @@ class Welcome extends CI_Controller {
                       
                      //$data["content"]="Loading ...";
                       $data["content"]="content";
+                     $data["sess_level"]=$this->session->userdata("sess_level");
                               
                       $this->load->view("home",$data);
                  }
                  else{
                      redirect("welcome/index");
                  }
-             //$this->load->view("home",$data);
+          
         }
-             
+        
+        public function  mainconent() //หน้าหลักโปรแกรม
+        {
+                    // $data["content"]="content";
+                     $data["sess_level"]=$this->session->userdata("sess_level");
+                              
+                      $this->load->view("content",$data);
+        }
+//http://localhost/stock/index.php/welcome/manageuser
+      public    function manageuser()
+      {
+                   //  $data["content"]="admin/manageuser";
+                     $data["sess_level"]=$this->session->userdata("sess_level");
+                       $tb="tb_member";
+                      $data["query"]=$this->db->get($tb);        
+                      $this->load->view("admin/manageuser",$data);
+      }
+        
 }
 
 /* End of file welcome.php */

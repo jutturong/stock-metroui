@@ -15,9 +15,11 @@
             }
         }
     </style>
+    
+    
 
 </head>
-<body>
+<body  onload="javascript: $('#content').load('<?=base_url()?>index.php/welcome/mainconent/');  ">
     
     <!-- Head menu -->
     <div>
@@ -127,7 +129,8 @@
                 
                 <!--  เนื้อหาจาก DB -->
                 <div class="padding10" style="padding-top: 20px; padding-left: 10px; ">
-                     <?=@$this->load->view($content)?>
+                     <?php  //$this->load->view($content);   ?>
+                    <span id="content"></span>
                 </div>
                <!--  เนื้อหาจาก DB -->
                  
@@ -276,8 +279,14 @@
     <!--  PAGE Content -->
     
     <div>
-        <?=$this->load->view("footer")?>
+        <?php  //$this->load->view("footer");  ?>
     </div>
+
+    
+    
+  
+
+
 
 </body>
 
