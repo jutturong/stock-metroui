@@ -1,76 +1,22 @@
 <script type="text/javascript">
-    /*
-      $(function(){
-                        $("#tabcontrol).tabcontrol({
-                            onTabClick: function(tab){...},
-                            onTabChange: function(tab){...}
-                        });
-                    })
-     */
-    
-
    
-    
-    
+
 </script>
 
-
-
-
-
-<!-- window  manage user -->  
-<!--
- <div class="cell">
-                        <div class="window success">
-                            <div class="window-caption">
-                                
-                               
-                                    <span class="mif-local-service mif-2x" style="color: white;"></span>
-                                    Manage User</span>
-                                <span class="btn-min"></span>
-                                <span class="btn-max"></span>
-                                <span class="btn-close"></span>
-                            </div>
-                            <div class="window-content" style="height: auto;width: auto">
-                                
-                                <table class="table striped hovered cell-hovered border bordered">
-                                    <thead>
-                                        <tr>
-                                            <th class="sortable-column ">UserName</th>
-                                             <th class="sortable-column ">ชื่อ</th>
-                                              <th class="sortable-column ">นามสกุล</th>
-                                               <th class="sortable-column ">ระดับการใช้งาน</th>
-                                              <th class="sortable-column ">อนุญาตใช้งาน</th>
-                                              <th class="sortable-column ">แต้ม (Point)</th>
-                                        </tr>
-                                       
-                                    </thead>
-                                    
-                                     <?php
-                                        foreach($query->result() as $row)
-                                        {
-                                            ?>
-                                             <tr>
-                                                 <td><?=$row->us?></td>
-                                                 <td><?=$row->name?></td>
-                                                 <td><?=$row->lastname?></td>
-                                                  <td><?=$row->level?></td>
-                                                   <td><?=$row->authentic?></td>
-                                                       <td><?=$row->point?></td>
-                                            </tr>
-                                           <?php 
-                                        }
-                                        
-                                     ?>
-                                    
-                                </table>
-                            </div>
-                        </div>
-                    </div>
--->
-<!-- window  manage user -->
-
-<?=br()?>  <?=br()?> <?=br()?>
+<?php
+   echo br();
+   echo br();
+   echo br();
+   echo br();
+   echo br();
+   echo br();
+  // echo br();
+   //echo br();
+  // echo br();
+  // echo br();
+   //echo br();
+   //echo br();
+?>
 
 <!--  TAB control -->
 <div class="tabcontrol2 tabs-bottom" data-role="tabcontrol">
@@ -90,9 +36,17 @@
                                 <div class="frame" id="frame_6_1">
                                     
                                 <!-- window  manage user -->
-                                <button class="button warning" ><span class="mif-satellite"></span> Edit / Update </button>
-                                <button class="button danger"><span class="mif-pause"></span> Delete User</button>
                                 
+                                <!-- button user operater -->
+                                <!--
+                                <button class="button warning"  onclick="showMetroDialog('#dialog-user1')" ><span class="mif-satellite"></span> Edit / Update </button>
+                                <button class="button danger"><span class="mif-pause"></span> Delete User</button>
+                                -->
+                                
+                                   <button class="button warning"   ><span class="mif-satellite"></span> Add User (เพิ่มผู้ใช้ในระบบ) </button>
+                                  
+                                 <!-- button user operater -->
+                                 
                                 <div class="cell">
                         <div class="window success">
                             <div class="window-caption">
@@ -132,7 +86,7 @@
                                                     
      
  <label class="input-control radio">
-     <input type="radio" id="<?=$row->id_member?>" name="id_member"  onchange="Dialoguser()">
+     <input type="radio" id="<?=$row->id_member?>" name="id_member"  onchange="javascript: showMetroDialog('#dialog-user1');  ">
     <span class="check"></span>
     <span class="caption">
                                                     
@@ -191,6 +145,39 @@
                             
                         </div>
 <!--  TAB control -->
+
+
+<!-- Dialog สถานะของ manage user--->
+<div data-role="dialog" id="dialog-user1"  class="padding20 dialog warning"  data-close-button="true" data-place="top-center">
+                <!--<h1>Simple dialog</h1>-->
+                
+                <h6>   
+                    <span class="mif-github mif-2x" style="color: white;"></span> Manage User    Update / Edit / Block  </span>         
+                </h6>   
+          
+                
+            <!-- begin form user -->   
+                <form data-role="validator">
+    <label class="block">UserName </label>
+    <div class="input-control text">
+        <input
+            data-validate-func="minlength"
+            data-validate-arg="6"
+            data-validate-hint="This field must contains min 6 symbols!"
+            type="text">
+        <span class="input-state-error mif-warning"></span>
+        <span class="input-state-success mif-checkmark"></span>
+    </div>
+    <div>
+        <button class="button success">Send</button>
+    </div>
+</form>
+      <!-- begin form user -->           
+                
+                
+
+</div>
+<!-- Dialog -->
 
 
 
