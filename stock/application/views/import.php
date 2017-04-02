@@ -26,9 +26,7 @@
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/ga.js"></script>
 
    
-<!-- zoom -->    
 
- <!-- zoom -->   
  
  
 
