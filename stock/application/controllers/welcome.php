@@ -85,6 +85,21 @@ class Welcome extends CI_Controller {
                       $data["query"]=$this->db->get($tb);        
                       $this->load->view("admin/manageuser",$data);
       }
+      
+      public function   load_manageuser()  //load form management user 
+      {
+             //  echo  "T";
+             $id_member=trim($this->uri->segment(3));
+            //echo br();
+                $tb="tb_member";
+               if(  $id_member > 0 )
+               {
+                       $query=$this->db->get_where($tb,array("id_member"=>$id_member));
+                       $data["row"]=$query->row();
+                        $this->load->view("admin/update_user",$data);    
+               }
+          
+      }
         
 }
 

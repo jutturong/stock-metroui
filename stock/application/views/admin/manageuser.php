@@ -45,6 +45,8 @@
                                 -->
    
                                  <!-- button user operater -->
+                                 
+                                 
                               
                                  
                                   <!-- menu -->
@@ -109,7 +111,10 @@
                                                     
      
  <label class="input-control radio">
-     <input type="radio" id="<?=$row->id_member?>" name="id_member"  onchange="javascript: showMetroDialog('#dialog-user1');  ">
+     <!-- load_manageuser  -->
+     <!-- onchange="javascript: showMetroDialog('#dialog-user1');  " --> 
+     <!-- $('#user_update').load('<?=base_url()?>index.php/welcome/load_manageuser/' +  '<?=$row->id_member?>' );  -->
+     <input type="radio" id="<?=$row->id_member?>" name="id_member" onchange="javascript : showMetroDialog('#dialog-user1');  $('#user_update').load('<?=base_url()?>index.php/welcome/load_manageuser/' +  '<?=$row->id_member?>' );  " >
     <span class="check"></span>
     <span class="caption">
                                                     
@@ -147,169 +152,10 @@
                                                        <td><?=$row->point?></td>
                                             </tr>
                                             
-        <!-- Dialog สถานะของ manage user--->
-<div data-role="dialog" id="dialog-user1"  class="padding20 dialog warning"  data-close-button="true" data-place="top-bottom">
-                <!--<h1>Simple dialog</h1>-->
-                
-                <h6>   
-                    <span class="mif-github mif-2x" style="color: white;"></span> Manage User    Update / Edit / Block  </span>         
-                </h6>   
-            <!-- begin form user -->   
-                <form data-role="validator">
-                    
-                    <div class="grid">
-                        
-                        <div class="row cells6">
-                            <div class="cell colspan3">
-                                 <div class="input-control  text  success" data-role="input">
-                                    <label class="block">UserName </label>
-                                                        <input
-                                                            data-validate-func="minlength"
-                                                            data-validate-arg="6"
-                                                            data-validate-hint="This field must contains min 6 symbols!"
-                                                            value="<?=$row->us?>"
-                                                            placeholder="UserName"
-                                                            type="text">
-                                 <span class="input-state-success mif-checkmark"></span>  
-                               </div>
-                            </div>
-                            
-                            <div class="cell colspan3">
-                              <div class="input-control  text  success" data-role="input">
-                                                <label class="block">Password </label>
-                                                <input
-                                                   data-validate-func="minlength"
-                                                   data-validate-arg="6"
-                                                   data-validate-hint="This field must contains min 6 symbols!"
-                                                   value=""
-                                                   type="text">
-                                               <span class="input-state-success mif-checkmark"></span>  
-                               </div>  
-                            </div>
-                        </div>
-                        
-                        <div class="row cells6">
-                            <div class="cell colspan3">
-                                               <div class="input-control  text  success" data-role="input">
-                                                  <label class="block">ชื่อ </label>
-                                                     <input
-                                                    data-validate-func="minlength"
-                                                    data-validate-arg="6"
-                                                    data-validate-hint="This field must contains min 6 symbols!"
-                                                    value="<?=$row->name?>"
-                                                    type="text">
-                                                    <span class="input-state-success mif-checkmark"></span>  
-                                            </div>
-                              </div>
-                            <div class="cell colspan3">
-                                         <div class="input-control  text  success" data-role="input">
-                                                  <label class="block">นามสกุล </label>
-                                                     <input
-                                                    data-validate-func="minlength"
-                                                    data-validate-arg="6"
-                                                    data-validate-hint="This field must contains min 6 symbols!"
-                                                    value="<?=$row->lastname?>"
-                                                    type="text">
-                                                    <span class="input-state-success mif-checkmark"></span>  
-                                            </div>
-                            </div>
-                        </div>
-                        <div class="row cells6">
-                            
-                              <div  class="cell colspan3">
-                            <div class="input-control  select  success" data-role="input">
-                                
-                               
-                                  <label class="block">ระดับของ User </label>
-                                <div class="input-control select">
-                                    <select>
-                                        
-                                        <?php
-                                        if( $row->level  == 1  )
-                                        {
-                                        ?>
-                                        <option value="1" selected>Admin</option>
-                                        <option value="2">User</option>
-                                         <?php
-                                        }
-                                        elseif( $row->level ==2 )
-                                        {
-                                         ?>
-                                         <option value="1" >Admin</option>
-                                        <option value="2" selected>User</option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                      <span class="input-state-success mif-checkmark"></span>  
-                                </div>
-                                 </div>    
-                                  
-                                  
-                              </div>
-                            <div  class="cell colspan3">
-                                <div class="input-control  select  success" data-role="input">
-                                    
-                                    
-                                    <label class="block">อนุญาตการใช้งาน </label>
-                                       <div class="input-control select">
-                                      <select>
-                                        
-                                        <?php
-                                        if( $row->authentic  == 1  )
-                                        {
-                                        ?>
-                                        <option value="1" selected>อนุญาต</option>
-                                        <option value="2">Block</option>
-                                         <?php
-                                        }
-                                        elseif( $row->authentic ==2 )
-                                        {
-                                         ?>
-                                         <option value="1" >อนุญาต</option>
-                                        <option value="2" selected>Block</option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                           
-                                      <span class="input-state-success mif-checkmark"></span>  
-                                       </div> 
-                                      
-                                      
-                                </div>
-                            </div>
-                            
-                            </div>
-                           
-                        <div class="row cells6">
-                            
-                            <div  class="cell colspan3">
-                                
-                                 <div class="input-control  text  success" data-role="input">
-                                    <label class="block">แต้ม (Point) </label>
-                                                        <input
-                                                            data-validate-func="minlength"
-                                                            data-validate-arg="6"
-                                                            data-validate-hint="This field must contains min 6 symbols!"
-                                                            value="<?=$row->point?>"
-                                                            placeholder="UserName"
-                                                            type="text">
-                                 <span class="input-state-success mif-checkmark"></span>  
-                               </div>
-                                
-                            </div>
-                            
-                        </div>
-                        
-                            
-                        </div>
-                        
-                        
-                        
-                    </div>
+     
+        
    
-</form>
+
       <!-- begin form user -->           
                 
                 
@@ -340,6 +186,16 @@
                             
                         </div>
 <!--  TAB control -->
+
+
+
+<!-- load dialog user update form -->
+<!--<span id="user_update"></span>-->
+<div data-role="dialog" id="dialog-user1"  class="padding20 dialog success"  data-close-button="true" data-place="top-bottom">
+    <span id="user_update"></span>
+</div>
+<!-- load dialog user update form -->
+
 
 
 
