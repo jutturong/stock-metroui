@@ -100,6 +100,64 @@ class Welcome extends CI_Controller {
                }
           
       }
+      public function update_user()
+      {
+           //echo 't';
+             $id_member=trim($this->input->get_post("id_member"));
+          //echo br();
+            $us=trim($this->input->get_post("us"));
+          // echo br();
+             $ps=md5(trim($this->input->get_post("ps")));
+           //echo br();
+             $name=trim($this->input->get_post("name"));
+           //echo  br();
+             $lastname=trim($this->input->get_post("lastname"));
+           //echo  br();
+             $level=trim($this->input->get_post("level"));
+           //echo  br();
+             $authentic=trim($this->input->get_post("authentic"));
+           //echo br();
+             $point=trim($this->input->get_post("point"));
+           //echo br();
+
+          if( $this->input->get_post("ps") == "" )
+          {
+           $data=array(
+               "us"=>$us,
+              // "ps"=>$ps,
+               "name"=>$name,
+               "lastname"=>$lastname,
+               "level"=>$level,
+               "authentic"=>$authentic,
+               "point"=>$point,
+           );
+          }
+          elseif( $this->input->get_post("ps") != "" )
+              {
+               $data=array(
+               "us"=>$us,
+               "ps"=>$ps,
+               "name"=>$name,
+               "lastname"=>$lastname,
+               "level"=>$level,
+               "authentic"=>$authentic,
+               "point"=>$point,
+           );
+              }
+           
+             $tb="tb_member";
+             $this->db->where("id_member",$id_member);
+             $ck_update=$this->db->update($tb,$data);
+           if( $ck_update  )
+           {
+               echo "1";
+           }else
+           {
+               echo "0";
+           }
+             
+           
+      }
         
 }
 

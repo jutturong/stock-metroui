@@ -70,7 +70,7 @@
                                 
                                  
                                  
-                                 
+                                 <button class="button warning"  onclick="     $('#content').load('<?=base_url()?>index.php/welcome/manageuser');    "  ><span class="mif-file-movie"></span> Refresh </button>
                                  
                                 <div class="cell">
                         <div class="window success">
@@ -191,7 +191,7 @@
 
 <!-- load dialog user update form -->
 <!--<span id="user_update"></span>-->
-<div data-role="dialog" id="dialog-user1"  class="padding20 dialog success"  data-close-button="true" data-place="top-bottom">
+<div data-role="dialog" id="dialog-user1"  class="padding20 dialog success"  data-close-button="true" data-place="top-left">
     <span id="user_update"></span>
 </div>
 <!-- load dialog user update form -->
