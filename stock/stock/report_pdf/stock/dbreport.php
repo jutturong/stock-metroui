@@ -227,6 +227,33 @@ $pdf->Cell(  15  ,  6 , iconv( 'UTF-8','cp874' ,     "แนะนำการ�
 $pdf->setXY( $x1+1  , 30 +6+7+3+3+6+3+3 );
 $pdf->Cell(  15  ,  6 , iconv( 'UTF-8','cp874' ,     "จันทร์ - ศุกร์  ( 8.30 - 17.30 น. )  "  ),0,'C',false);
 
+//------ image QR code
+$pdf->Image('static_qr_code_without_logo.png',$x1-2, 30 +6+7+3+3+6+3+3+3+2 ,30,0,'','');
+
+/*
+ ##------------------------- icon logo ------------------
+//$pdf->Image('../icon/px.jpeg',10,12,20,0,'','');//Image(string file [, float x [, float y [, float w [, float h [, string type [, mixed link]]]]]])
+$pdf->Image('../icon/Logo_cleft.jpg',40,270,20,0,'','');//Image(string file [, float x [, float y [, float w [, float h [, string type [, mixed link]]]]]])
+$pdf->Image('../icon/med.gif',105,270,13,0,'','');//Image(string file [, float x [, float y [, float w [, float h [, string type [, mixed link]]]]]])
+$pdf->Image('../icon/kku.gif',170,270,6,0,'','');//Image(string file [, float x [, float y [, float w [, float h [, string type [, mixed link]]]]]])
+##------------------------- icon logo ------------------
+ */
+
+
+$pdf->setXY( $x1+25  , 30 +6+7+3+3+6+3+3+3+2+5 );
+$pdf->Cell(  15  ,  6 , iconv( 'UTF-8','cp874' ,     "PLEASE SCAN THIS CODE"  ),0,'C',false);
+
+$pdf->setXY( $x1+25  , 30 +6+7+3+3+6+3+3+3+2+5+3 );
+$pdf->Cell(  15  ,  6 , iconv( 'UTF-8','cp874' ,     "WITH YOUR MOBILE PHONE"  ),0,'C',false);
+
+$pdf->setXY( $x1+25  , 30 +6+7+3+3+6+3+3+3+2+5+3+3 );
+$pdf->Cell(  15  ,  6 , iconv( 'UTF-8','cp874' ,     "TO SEE MORE PROMOTIONS"  ),0,'C',false);
+
+
+$pdf->setXY( $x1+25  , 30 +6+7+3+3+6+3+3+3+2+5+3+3+3 );
+$pdf->Cell(  15  ,  6 , iconv( 'UTF-8','cp874' ,     "ON OUR FACEBOOK"  ),0,'C',false);
+
+
 
 
 $pdf->Output();

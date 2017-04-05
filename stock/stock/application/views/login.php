@@ -81,7 +81,7 @@
             <br />
             <div class="input-control password full-size" data-role="input">
                 <label for="password">Password :</label>
-                <input type="password" name="password" id="password"   value="stock111">
+                <input type="password" name="password" id="password"   value="1234">
                 <button class="button helper-button reveal"><span class="mif-looks"></span></button>
             </div>
             <br />
