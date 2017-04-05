@@ -264,7 +264,7 @@ function  chstr1($t)
      $m=date("m");
      $m_thai=date_thai($m);
    */
-
+$Y= $_REQUEST["Y"]+543;
 //$Y=date("Y");
      
      
