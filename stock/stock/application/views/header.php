@@ -1,3 +1,10 @@
+<script type="text/javascript">
+     $(function()
+     {
+         $('#menu_category').load('<?=base_url()?>index.php/welcome/menu_category');
+     });
+</script>
+
 <header class="app-bar fixed-top navy" data-role="appbar">
     <div class="container">
         
@@ -59,30 +66,36 @@
             
              <li>
                  <a href="#"  onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/mainconent/');  "  class="app-bar-element branding">
-             <span class="mif-apps mif-2x" style="color: white;"></span>
+             <span class="mif-calendar mif-1x" style="color: white;"></span>
           <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
-          หน้าหลัก
+          
             
         </a>
             </li>
             
+            
+    <!--  origin  หมวดหมู่สินค้า -->
+               <!--
             <li>
                 <a href="#" class="dropdown-toggle">
-                     <span class="mif-file-picture mif-1x fg-white"></span>
+                     <span class="mif-sync-problem  mif-1x fg-black"></span>
                     หมวดหมู่สินค้า
                 </a>
                 <ul class="d-menu" data-role="dropdown" data-no-close="true">
                     <li>
                         <a href="#" class="dropdown-toggle">วัสดุโครงสร้าง</a>
+                        
                         <ul class="d-menu" data-role="dropdown" data-no-close="true">
                             <li><a href="appbar.html">Application bar</a></li>
                             <li><a href="menu.html">Menus</a></li>
                             <li><a href="fluent-menu.html">Fluent menu</a></li>
                             <li><a href="sidebar.html">Sidebar</a></li>
                         </ul>
+                        
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle">ปูน</a>
+                        
                         <ul class="d-menu" data-role="dropdown" data-no-close="true">
                             <li><a href="accordion.html">Accordion</a></li>
                             <li><a href="button-groups.html">Button groups</a></li>
@@ -95,9 +108,11 @@
                             <li><a href="wizard.html">Wizard</a></li>
                             <li><a href="wizard2.html">Wizard2</a></li>
                         </ul>
+                        
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle">เหล็ก</a>
+                        
                         <ul class="d-menu" data-role="dropdown" data-no-close="true">
                             <li><a href="tiles.html">Tiles</a></li>
                             <li><a href="carousel.html">Carousel</a></li>
@@ -111,47 +126,59 @@
                             <li><a href="streamer.html">Streamer</a></li>
                             <li><a href="presenter.html">Presenter</a></li>
                         </ul>
+                        
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle">หลังคา</a>
+                        
                         <ul class="d-menu" data-role="dropdown" data-no-close="true">
                             <li><a href="notify.html">Notify system</a></li>
                             <li><a href="dialog.html">Dialogs</a></li>
                             <li><a href="windows.html">Window</a></li>
                         </ul>
+                        
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle">ไม้</a>
+                        
                         <ul class="d-menu" data-role="dropdown" data-no-close="true">
                             <li><a href="calendar.html">Calendar</a></li>
                             <li><a href="datepicker.html">Datepicker</a></li>
                             <li><a href="countdown.html">Countdown</a></li>
                         </ul>
+                        
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle">ท่อ</a>
+                        
                         <ul class="d-menu" data-role="dropdown">
                             <li><a href="video-player.html">Video player</a></li>
                             <li><a href="audio-player.html">Audio player</a></li>
                         </ul>
+                        
                     </li>
                     <li>
-                        <a href="#" class="dropdown-toggle">Tools</a>
+                        <a href="#" class="dropdown-toggle">กระเบื้องหลังคา</a>
+                        
                         <ul class="d-menu" data-role="dropdown">
                             <li><a href="validator.html">Form Validator</a></li>
                             <li><a href="draggable.html">Draggable</a></li>
                         </ul>
+                       
                     </li>
-                    <li><a href="charms.html">Charms</a></li>
+                    <li><a href="#" class="dropdown-toggle">ของตกแต่ง</a></li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#" class="dropdown-toggle">Events &amp; Hotkeys</a>
+                        <a href="#" class="dropdown-toggle">ตัวทำละลาย</a>
+                        
                         <ul class="d-menu" data-role="dropdown">
                             <li><a href="events.html">Event binding</a></li>
                             <li><a href="hotkeys.html">Hotkey binding</a></li>
                         </ul>
+                        
                     </li>
                     <li class="divider"></li>
+                    
                     <li>
                         <a href="#" class="dropdown-toggle">Third-party</a>
                         <ul class="d-menu" data-role="dropdown" data-no-close="true">
@@ -169,15 +196,37 @@
                             <li class="disabled"><a href="precode.html">PreCode</a></li>
                         </ul>
                     </li>
+                    
                 </ul>
             </li>
+            -->
+     <!--  origin  หมวดหมู่สินค้า -->
+            
+            
+            <!-- หมวดหมู่สินค้า database server -->
+            <li>
+                <a href="#" class="dropdown-toggle">
+                     <span class="mif-sync-problem  mif-1x fg-black"></span>
+                    หมวดหมู่สินค้า
+                </a>
+                 <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                     <!--
+                    <li>
+                        <a href="#" class="dropdown-toggle">วัสดุโครงสร้าง</a>                      
+                    </li>
+                    -->
+                                        <span  id="menu_category" ></span>                   
+                 </ul>
+            </li>
+             <!-- หมวดหมู่สินค้า database server -->
+             
             
              <li>
                  <a href="#" class="app-bar-element branding">
                                 
                      <span id="value_baseket"></span>  
 
-             <span class="mif-shopping-basket mif-2x fg-white"></span>
+             <span class="mif-shopping-basket2 mif-1x fg-black"></span>
           <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
             
         </a>
@@ -187,7 +236,7 @@
             <li>
                 <a href="#" class="dropdown-toggle">
                     <span class="mif-user mif-1x fg-white"></span>
-                    สมาชิก <?php  echo  $sess_point;  ?> Point </a> 
+                    สมาชิก  </a> 
                 <ul class="d-menu" data-role="dropdown" data-no-close="true">
                     <li><a href="templates/start-screen.html"><span class="mif-gift mif- 1x fg-white"></span>  แต้มสะสม</a></li>
                     <li><a href="templates/news-portal.html"><span class="mif-user-plus mif-1x fg-white"></span> เปลี่ยนรหัสผ่าน</a></li>
@@ -198,7 +247,7 @@
 
             <li>
                 <a href="#" class="dropdown-toggle">
-                     <span class="mif-credit-card mif-1x fg-white"></span>
+                     <span class="mif-shop mif-1x fg-white"></span>
                     บริการลูกค้า</a>
                 <ul class="d-menu" data-role="dropdown" data-no-close="true">
                     <!--<li><a href="http://forum.metroui.org.ua"><span class="mif-bubbles mif-1x fg-white"></span> ติดต่อเราทาง LINE@</a></li>-->
@@ -231,16 +280,16 @@
            ?>
             <li>
                   <a href="#" class="dropdown-toggle" >
-             <span class="mif-cogs mif-2x fg-black"></span>
+             <span class="mif-move-up mif-1x fg-white"></span>
           <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
-            Administrator
+          Admin
         </a>
                 
                 <ul class="d-menu" data-role="dropdown" data-no-close="true">
                     <li><a  href="#"   onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/manageuser');   "   ><span class="mif-user-plus mif-1x fg-black"></span> Manage User</a></li>
-                    <li><a href="#"><span class="mif-tags mif-1x fg-black"></span> Billing ร้านค้า/ลูกค้า</a></li>
+                    <li><a href="#"><span class="mif-equalizer mif-1x fg-black"></span> Billing ร้านค้า/ลูกค้า</a></li>
                     <li class="divider"></li>
-                    <li><a href="#" ><span class="mif-clipboard mif-1x fg-black"></span> เพิ่มรายการสินค้า </a></li>
+                    <li><a href="#"  onclick="javascript:  $('#content').load('<?=base_url()?>index.php/welcome/form_product');   $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category'); "  ><span class="mif-floppy-disk mif-1x fg-black"></span> เพิ่มรายการสินค้า </a></li>
                 </ul>
                 
                 
@@ -252,9 +301,9 @@
             
               <li>
                  <a href="<?=base_url()?>index.php/welcome/index/" class="app-bar-element branding">
-             <span class="mif-switch mif-1x fg-white"></span>
+             <span class="mif-switch mif-1x fg-black"></span>
           <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
-          ออกจากระบบ
+          
             
         </a>
             </li>

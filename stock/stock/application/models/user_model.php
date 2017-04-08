@@ -9,10 +9,13 @@ class User_model extends CI_Model {
     }
     function  authen()
     {
-            
-                     
-           
+
+    }
     
+    function category() //แสดงหมวดหมู่สินค้า
+    {
+             $tb="tb_category";
+             return  $this->db->get($tb);
     }
     
     
