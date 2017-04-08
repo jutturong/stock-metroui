@@ -3,6 +3,7 @@
     {
           //$(".tabcontrol2").tabcontrol();
           //$("#tabcontrol_product").tabcontrol();
+           $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');
     });
 </script>
 
@@ -25,7 +26,7 @@
                                                         <div class="cell spaces8">
    <label class="block">หมวดหมู่สินค้า</label>
                                                             <div class="input-control select">
-                                                                        <select>
+                                                                <select  id="id_category" name="id_category" >
                                                                             <?php
                                                                             $query=$this->user_model->category();
                                                                             foreach($query->result() as $row )
@@ -109,7 +110,7 @@
                                                  <label class="block">จำนวน </label>
                                         <div class="input-control text   success">
                                               <span class="mif-move-up mif-1x fg-black  prepend-icon"></span>
-                                            <input   type="text" placeholder="ระบุจำนวนสินค้า"  >
+                                            <input   type="text" placeholder="ชิ้น"  >
                                         </div>
                                                 
                                             </div>
@@ -121,7 +122,7 @@
                                                  <label class="block">ราคา </label>
                                         <div class="input-control text   success">
                                              <span class="mif-move-up mif-1x fg-black  prepend-icon"></span>
-                                            <input   type="text" placeholder="ระบุราคาสินค้า"  >
+                                            <input   type="text" placeholder="บาท"  >
                                         </div>
                                                 
                                             </div>
@@ -168,7 +169,68 @@
        <!--  TAB  5_1 -->                         
                                 
                                 </div>
-                                <div class="frame" id="frame_5_2">2</div>
+                                <div class="frame" id="frame_5_2">
+                                 
+                                <!--  tab 5_2 -->
+                                <!-- add_category  -->
+                                <form data-role="validator"  id="fr_category">
+                                   <div class="grid">   
+                                   <div class="row cell8">
+                                                        <div class="cell spaces2">
+   <label class="block">เพิ่มหมวดหมู่สินค้า</label>
+               
+                                        
+                                        <div class="input-control text   success">
+                                           <span class="mif-move-up mif-1x fg-black  prepend-icon"></span> 
+                                          <!--  <span class="mif-move-up mif-1x fg-white"></span> -->
+                                           <input   type="text"  id="category" name="category"  placeholder="เพิ่มหมวดหมู่สินค้า"   >
+                                        </div>                                            
+                                                            
+                                                            
+                                                           
+                                                    
+                                            </div>
+                                     
+                                       
+                                       
+                                          </div>     
+                                       
+                                            <div class="row cell4">
+                                           
+                                            <div class="cell spaces2">
+                                                <button class="button success"  type="button"  onclick="  
+                                                    //$('#fr_user').serialize()
+                                                        $.post('<?=base_url()?>index.php/welcome/add_category',  $('#fr_category').serialize() ,function(data)
+                                                        {
+                                                            //alert(data);
+                                                            if( data == 1 )
+                                                            {
+                                                                alert('บันทึกข้อมูลแล้ว');
+                                                                $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');
+                                                            }                                                         
+                                                        })
+                                                        " >
+                                                    <span class="mif-file-archive prepend-icon"></span>
+                                                  บันทึกข้อมูล</button>  
+                                            </div>
+                                                
+                                        </div>
+                                       
+                                       <div class="row cell4">
+                                           
+                                          
+                                           <span id="tb_category">
+                                               <!-- load_category -->
+                                           </span>
+                                               
+                                             
+                                       
+                                       
+                                   </div>    
+                                       
+                                    </form>
+                                <!--  tab 5_2 -->
+                                </div>
                             </div>
                         </div>
                     </div>

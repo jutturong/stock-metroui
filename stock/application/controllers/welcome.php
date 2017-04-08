@@ -54,6 +54,7 @@ class Welcome extends CI_Controller {
                       $this->session->set_userdata($sess_data);
                       //echo $this->session->userdata("sess_us"); //ทดสอบการเรียกใช้งาน
                        //$this->session->userdata("sess_level");
+                    // echo  $this->session->userdata("sess_logon");
                       $data["sess_point"]=  $this->session->userdata("sess_point");
                       
                       
@@ -71,26 +72,32 @@ class Welcome extends CI_Controller {
        //http://localhost/stock/index.php/welcome/mainconent 
         public function  mainconent() //หน้าหลักโปรแกรม
         {
-                    // $data["content"]="content";
+         
+                 
                      $data["sess_level"]=$this->session->userdata("sess_level");
                               
                       $this->load->view("content",$data);
+        
         }
 //http://localhost/stock/index.php/welcome/manageuser
       public    function manageuser()
-      {
-                   //  $data["content"]="admin/manageuser";
+      {         
+          
+                
                      $data["sess_level"]=$this->session->userdata("sess_level");
                        $tb="tb_member";
                       $data["query"]=$this->db->get($tb);        
                       $this->load->view("admin/manageuser",$data);
+         
       }
       
       public function   load_manageuser()  //load form management user 
       {
-             //  echo  "T";
+         
+          
+           
              $id_member=trim($this->uri->segment(3));
-            //echo br();
+          
                 $tb="tb_member";
                if(  $id_member > 0 )
                {
@@ -99,40 +106,44 @@ class Welcome extends CI_Controller {
                         $this->load->view("admin/update_user",$data);    
                }
           
+             
       }
       
       public function  form_product() //เพิ่มรายการสินค้า
       {
+        
            $data["title"]=$this->title;
-           //echo "T";
+        
            $this->load->view("admin/form_product",$data);
+            
       }
       
       public function update_user()
       {
-           //echo 't';
+          
+         
              $id_member=trim($this->input->get_post("id_member"));
-          //echo br();
+       
             $us=trim($this->input->get_post("us"));
-          // echo br();
+      
              $ps=md5(trim($this->input->get_post("ps")));
-           //echo br();
+         
              $name=trim($this->input->get_post("name"));
-           //echo  br();
+       
              $lastname=trim($this->input->get_post("lastname"));
-           //echo  br();
+          
              $level=trim($this->input->get_post("level"));
-           //echo  br();
+         
              $authentic=trim($this->input->get_post("authentic"));
-           //echo br();
+        
              $point=trim($this->input->get_post("point"));
-           //echo br();
+          
 
           if( $this->input->get_post("ps") == "" )
           {
            $data=array(
                "us"=>$us,
-              // "ps"=>$ps,
+            
                "name"=>$name,
                "lastname"=>$lastname,
                "level"=>$level,
@@ -163,11 +174,42 @@ class Welcome extends CI_Controller {
            {
                echo "0";
            }
-             
+            
            
+           
+      }
+      
+      
+      public function load_category()//โหลดรายการหมวดหมู่สินค้า
+      {
+             $tb="tb_category";
+            $data["q"]=$this->db->get($tb);
+            $this->load->view("admin/tb_category",$data);
+            
+      }
+      public function   add_category() //เพิ่มรายการหมวดหมู่สินค้า
+      {
+           
+                     $category=trim($this->input->get_post("category"));
+                 // echo br();
+                  
+                  $data=array(
+                      "category"=>$category,
+                  );
+                  $tb="tb_category";
+                  //$this->db->insert('mytable', $data); 
+                  $ck=$this->db->insert($tb,$data);
+                  if( $ck )
+                  {
+                      echo 1;
+                  }else
+                  {
+                      echo 0;
+                  }
+                 
+             
       }
         
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+?>

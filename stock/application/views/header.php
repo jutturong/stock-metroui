@@ -68,7 +68,7 @@
             
             <li>
                 <a href="#" class="dropdown-toggle">
-                     <span class="mif-flow-tree  mif-1x fg-white"></span>
+                     <span class="mif-sync-problem  mif-1x fg-black"></span>
                     หมวดหมู่สินค้า
                 </a>
                 <ul class="d-menu" data-role="dropdown" data-no-close="true">
@@ -195,7 +195,7 @@
                                 
                      <span id="value_baseket"></span>  
 
-             <span class="mif-shopping-basket2 mif-1x fg-green"></span>
+             <span class="mif-shopping-basket2 mif-1x fg-black"></span>
           <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
             
         </a>
@@ -255,10 +255,10 @@
         </a>
                 
                 <ul class="d-menu" data-role="dropdown" data-no-close="true">
-                    <li><a  href="#"   onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/manageuser');   "   ><span class="mif-user-plus mif-1x fg-green"></span> Manage User</a></li>
-                    <li><a href="#"><span class="mif-equalizer mif-1x fg-green"></span> Billing ร้านค้า/ลูกค้า</a></li>
+                    <li><a  href="#"   onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/manageuser');   "   ><span class="mif-user-plus mif-1x fg-black"></span> Manage User</a></li>
+                    <li><a href="#"><span class="mif-equalizer mif-1x fg-black"></span> Billing ร้านค้า/ลูกค้า</a></li>
                     <li class="divider"></li>
-                    <li><a href="#"  onclick="javascript:  $('#content').load('<?=base_url()?>index.php/welcome/form_product');  "  ><span class="mif-floppy-disk mif-1x fg-green"></span> เพิ่มรายการสินค้า </a></li>
+                    <li><a href="#"  onclick="javascript:  $('#content').load('<?=base_url()?>index.php/welcome/form_product');   $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category'); "  ><span class="mif-floppy-disk mif-1x fg-black"></span> เพิ่มรายการสินค้า </a></li>
                 </ul>
                 
                 
@@ -270,7 +270,7 @@
             
               <li>
                  <a href="<?=base_url()?>index.php/welcome/index/" class="app-bar-element branding">
-             <span class="mif-switch mif-1x fg-red"></span>
+             <span class="mif-switch mif-1x fg-black"></span>
           <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
           
             
