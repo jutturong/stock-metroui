@@ -297,6 +297,9 @@ class Welcome extends CI_Controller {
       {
             if(      $this->session->userdata("sess_logon")  == 1  )   
                     {    
+                
+                $id_category=trim($this->input->get_post("id_category"));
+                
                 $fname =  $_FILES['file_product']['name'];
             //echo br();
                $fsize=$_FILES['file_product']['size'];
@@ -335,6 +338,7 @@ class Welcome extends CI_Controller {
                   
                   $tb="tb_product";
                   $data=array(
+                      "id_category"=>$id_category   ,
                       "product_name"=>$fname ,   //รูปภาพสินค้า    2
                       "code_product"=>$code_product,  //รหัสสินค้า   3
                       "name_product"=>$name_product,  //ชื่อสินค้า   4

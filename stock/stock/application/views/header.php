@@ -226,7 +226,7 @@
                                 
                      <span id="value_baseket"></span>  
 
-             <span class="mif-shopping-basket2 mif-1x fg-black"></span>
+             <span class="mif-shopping-basket mif-1x fg-black"></span>
           <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
             
         </a>
