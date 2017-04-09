@@ -22,7 +22,9 @@
                                     
                                     
                                    <!--  TAB  5_1 --> 
-                                    <form data-role="validator">
+                                   <!-- insert_product  -->
+                                   <?php   // echo form_open_multipart('welcome/insert_product');?>
+                                   <form data-role="validator"  id="fr_prouct" action="<?=base_url()?>index.php/welcome/insert_product"  method="post"  enctype="multipart/form-data"  novalidate="novalidate">
                                         
                                        <div class="grid">   
                                         <div class="row cell8">
@@ -60,7 +62,7 @@
                                             <div class="cell colspan8">
                                                 <label class="block">รูปสินค้า </label>
                                                 <div class="input-control file" data-role="input">
-    <input type="file">
+                                                    <input type="file"  id="file_product"  name="file_product"  multiple />
     <button class="button"><span class="mif-folder"></span></button>
 </div>
                                                 
@@ -75,7 +77,7 @@
                                         <div class="input-control text   success">
                                            <span class="mif-move-up mif-1x fg-black  prepend-icon"></span> 
                                           <!--  <span class="mif-move-up mif-1x fg-white"></span> -->
-                                            <input   type="text" placeholder="ระบุรหัสสินค้า"  >
+                                           <input   type="text" placeholder="ระบุรหัสสินค้า"  id="code_product"  name="code_product" >
                                         </div>
                                         
     
@@ -91,7 +93,7 @@
                                                  <label class="block">ชื่อสินค้า</label>
                                         <div class="input-control text   success">
                                               <span class="mif-move-up mif-1x fg-black  prepend-icon"></span>
-                                            <input   type="text" placeholder="ระบุชื่อสินค้า"  >
+                                              <input   type="text" placeholder="ระบุชื่อสินค้า"  name="name_product"  id="name_product" >
                                         </div>
                                                  
                                             </div>
@@ -102,7 +104,7 @@
                                                 <label class="block">แบรนด์ </label>
                                         <div class="input-control text   success">
                                               <span class="mif-move-up mif-1x fg-black  prepend-icon"></span>
-                                            <input   type="text" placeholder="ระบุแบรนด์สินค้า"  >
+                                              <input   type="text" placeholder="ระบุแบรนด์สินค้า"  id="brand_product"  name="brand_product"  >
                                         </div>
                                             </div>
                                         </div>
@@ -113,7 +115,7 @@
                                                  <label class="block">จำนวน </label>
                                         <div class="input-control text   success">
                                               <span class="mif-move-up mif-1x fg-black  prepend-icon"></span>
-                                            <input   type="text" placeholder="ชิ้น"  >
+                                              <input   type="text" placeholder="ชิ้น"  id="number_product"  name="number_product" >
                                         </div>
                                                 
                                             </div>
@@ -125,7 +127,7 @@
                                                  <label class="block">ราคา </label>
                                         <div class="input-control text   success">
                                              <span class="mif-move-up mif-1x fg-black  prepend-icon"></span>
-                                            <input   type="text" placeholder="บาท"  >
+                                             <input   type="text" placeholder="บาท"  id="price_product"  name="price_product"  >
                                         </div>
                                                 
                                             </div>
@@ -141,7 +143,7 @@
                                             
 <div class="input-control textarea full-size" data-role="input" data-text-auto-resize="true" data-text-max-height="200">
      
-     <textarea style="resize: none; overflow-y: hidden; height: 99px;"></textarea>
+    <textarea style="resize: none; overflow-y: hidden; height: 99px;"  id="description_product"  name="description_product"  ></textarea>
     
 </div>
                                                 
@@ -156,9 +158,43 @@
                                             <div class="cell spaces2">
                                             </div>
                                             <div class="cell spaces2">
-                                              <button class="button success">
+                                                
+                                                <!--
+                                                <button class="button success" type="button"  
+                                                        onclick="  
+                                                            javascript: 
+                                                                    // $('#fr_category').serialize()
+                                                            
+                                                                    $.post('<?=base_url()?>index.php/welcome/insert_product',  $('#fr_prouct').serializeArray()  , function(data)
+                                                            {
+                                                                //alert('t');
+                                                                alert(data);
+                                                            });
+                                                           
+                                                           // $('#fr_prouct').ajaxForm(function(data));
+                                                           /*
+                                                           $.ajax({
+                                                               url:'<?=base_url()?>index.php/welcome/insert_product',
+                                                               type:'POST',
+                                                               data:$('#fr_prouct').serialize(),
+                                                               cache:false,
+                                                               //dataType:''
+                                                              success:function(data)
+                                                              {
+                                                                  alert(data);
+                                                              }
+                                                           });*/
+                                                                     ">
                                                     <span class="mif-phonelink prepend-icon"></span>
                                                   บันทึกข้อมูล</button>  
+                                                -->
+                                                
+                                                <button class="button success" type="submit"  > 
+                                                    <span class="mif-phonelink prepend-icon"></span>
+                                                  บันทึกข้อมูล
+                                                </button>
+                                                
+                                                
                                             </div>
                                                 
                                         </div>
@@ -169,6 +205,7 @@
     -->
                                        </div>
 </form>
+                                    <?php  //form_close();?>
        <!--  TAB  5_1 -->                         
                                 
                                 </div>

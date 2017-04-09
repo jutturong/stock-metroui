@@ -1,3 +1,4 @@
+<?php  ob_start(); ?>
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
@@ -7,6 +8,9 @@ class Welcome extends CI_Controller {
                public function __construct() {
                    parent::__construct();
                      $this->load->model("user_model");
+                     $this->load->library('upload');
+                     $this->load->helper(array('form', 'url'));
+                     
                }
                
 	public function index()
@@ -29,7 +33,7 @@ class Welcome extends CI_Controller {
 	}
         public function checkauthen()
         {
-             $data{"title"}=$this->title;
+             $data["title"]=$this->title;
               $us=trim($this->input->get_post("user"));
              //echo br();
                $ps= md5( trim($this->input->get_post("password")) );
@@ -61,40 +65,77 @@ class Welcome extends CI_Controller {
                      //$data["content"]="Loading ...";
                       $data["content"]="content";
                      $data["sess_level"]=$this->session->userdata("sess_level");
+                     
+                     
+                      $data["sess_logon"]=$this->session->userdata("sess_logon");
                               
-                      $this->load->view("home",$data);
+                      //$this->load->view("home",$data);
+                      redirect("welcome/home");
                  }
                  else{
                      redirect("welcome/index");
                  }
           
         }
+        
+        public function home()
+        {
+                    if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
+                         $data["sess_point"]=  $this->session->userdata("sess_point");
+
+
+                                //$data["content"]="Loading ...";
+                                $data["title"]=$this->title;
+                                 $data["content"]="content";
+                                $data["sess_level"]=$this->session->userdata("sess_level");
+
+                                 $this->load->view("home",$data);
+                    }   
+                    else
+                    {
+                             redirect("welcome/index");
+                    }
+        }
+        
        //http://localhost/stock/index.php/welcome/mainconent 
         public function  mainconent() //หน้าหลักโปรแกรม
         {
-         
+            if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
                  
                      $data["sess_level"]=$this->session->userdata("sess_level");
                               
                       $this->load->view("content",$data);
+                    }
+                         else
+                    {
+                             redirect("welcome/index");
+                    }
         
         }
 //http://localhost/stock/index.php/welcome/manageuser
       public    function manageuser()
       {         
-          
+           if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
                 
                      $data["sess_level"]=$this->session->userdata("sess_level");
                        $tb="tb_member";
                       $data["query"]=$this->db->get($tb);        
                       $this->load->view("admin/manageuser",$data);
-         
+                 }
+                         else
+                    {
+                             redirect("welcome/index");
+                    }
       }
       
       public function   load_manageuser()  //load form management user 
       {
          
-          
+            if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
            
              $id_member=trim($this->uri->segment(3));
           
@@ -106,22 +147,32 @@ class Welcome extends CI_Controller {
                         $this->load->view("admin/update_user",$data);    
                }
           
-             
+                  }
+                         else
+                    {
+                             redirect("welcome/index");
+                    }
       }
       
       public function  form_product() //เพิ่มรายการสินค้า
       {
-        
+              if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
            $data["title"]=$this->title;
         
            $this->load->view("admin/form_product",$data);
-            
+              }
+                         else
+                    {
+                             redirect("welcome/index");
+                    }
       }
       
       public function update_user()
       {
           
-         
+             if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
              $id_member=trim($this->input->get_post("id_member"));
        
             $us=trim($this->input->get_post("us"));
@@ -175,21 +226,33 @@ class Welcome extends CI_Controller {
                echo "0";
            }
             
-           
+               }
+                         else
+                    {
+                             redirect("welcome/index");
+                    }
            
       }
       
       
       public function load_category()//โหลดรายการหมวดหมู่สินค้า
       {
+          
+                if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
              $tb="tb_category";
             $data["q"]=$this->db->get($tb);
             $this->load->view("admin/tb_category",$data);
-            
+                     }
+                         else
+                    {
+                             redirect("welcome/index");
+                    }
       }
       public function   add_category() //เพิ่มรายการหมวดหมู่สินค้า
       {
-           
+               if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
                      $category=trim($this->input->get_post("category"));
                  // echo br();
                   
@@ -206,15 +269,98 @@ class Welcome extends CI_Controller {
                   {
                       echo 0;
                   }
-                 
+                  
+                   }
+                         else
+                    {
+                             redirect("welcome/index");
+                    }
              
       }
       
       public function menu_category()
       {
+             if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
             //$tb="tb_category";
             //$data["q"]=$this->db->get($tb);
              $this->load->view("menu_category");
+                 }
+                         else
+                    {
+                             redirect("welcome/index");
+                    }
+      }
+      
+      //---- เพิ่มรายการสินค้า----------
+      public  function insert_product()
+      {
+            if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
+                $fname =  $_FILES['file_product']['name'];
+            //echo br();
+               $fsize=$_FILES['file_product']['size'];
+            // echo br();
+                 $ftmpname=$_FILES['file_product']['tmp_name'];
+            // echo br();
+               $ftypename=$_FILES['file_product']['type'];
+             // echo br();     
+                 if (   $_FILES['file_product']['type'] == "image/png"  ||   $_FILES['file_product']['type'] == "image/jpg"  ||   $_FILES['file_product']['type'] == "image/jpeg" ||   $_FILES['file_product']['type'] == "image/gif"  )
+                     {
+
+                                $source = $_FILES['file_product']['tmp_name'];
+                                $target = "uploadfile/".$_FILES['file_product']['name'];
+                                move_uploaded_file( $source, $target );// or die ("Couldn't copy");
+                                $size = getImageSize( $target );
+
+                                /*
+                                $imgstr = "<p><img width=\"$size[0]\" height=\"$size[1]\" ";
+                                $imgstr .= "src=\"$target\" alt=\"uploaded image\" /></p>";
+                                print $imgstr;                             
+                                 */
+                     }
+                     
+                    $code_product=trim($this->input->get_post("code_product")); //รหัสสินค้า
+               //echo br();
+                 $name_product=trim($this->input->get_post("name_product")); //ชื่อสินค้า
+             // echo br();
+                $brand_product=trim($this->input->get_post("brand_product")); //แบรนด์สินค้า
+              // echo br();
+                $number_product=trim($this->input->get_post("number_product"));   //จำนวนชิ้น
+               //echo br();
+                 $price_product=trim($this->input->get_post("price_product"));  //ราคาสินค้า
+                //echo br();
+               $description_product=trim($this->input->get_post("description_product"));   //รายละเอียดสินค้า 
+                  //echo br();
+                  
+                  $tb="tb_product";
+                  $data=array(
+                      "product_name"=>$fname ,   //รูปภาพสินค้า    2
+                      "code_product"=>$code_product,  //รหัสสินค้า   3
+                      "name_product"=>$name_product,  //ชื่อสินค้า   4
+                      "brand_product"=>$brand_product,  //แบรนด์สินค้า  5
+                      "number_product"=>$number_product,  //จำนวนชิ้น   6
+                      "price_product"=>$price_product,  //ราคาสินค้า   7
+                      "description_product"=>$description_product, //รายละเอียดสินค้า    8
+                  );
+                  $ck=$this->db->insert($tb,$data);
+                 // $ck=true;
+                  if( $ck )
+                      {
+                           //echo 1;
+                             redirect("welcome/home/1");
+                      }
+                      elseif( !$ck )
+                          {
+                             //echo 0;
+                               redirect("welcome/home/0");
+                          }
+         }
+                         else
+                    {
+                             redirect("welcome/index");
+                    }
+                    
       }
         
 }
