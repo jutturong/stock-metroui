@@ -3,10 +3,11 @@
     {
           //$(".tabcontrol2").tabcontrol();
           //$("#tabcontrol_product").tabcontrol();
-           $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');
+            $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');
            
             $('#menu_category').load('<?=base_url()?>index.php/welcome/menu_category');
             
+            $('#tb_product').load("<?=base_url()?>index.php/welcome/load_product");
     });
 </script>
 
@@ -206,6 +207,10 @@
                                        </div>
 </form>
                                     <?php  //form_close();?>
+                                   
+                                   <span id="tb_product"></span>
+                                   
+                                   
        <!--  TAB  5_1 -->                         
                                 
                                 </div>

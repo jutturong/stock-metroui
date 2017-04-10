@@ -366,6 +366,13 @@ class Welcome extends CI_Controller {
                     }
                     
       }
+      
+      public function   load_product()
+      {
+          
+           $data["title"]=$this->title;
+           $this->load->view("admin/tb_product",$data);
+      }
         
 }
 
