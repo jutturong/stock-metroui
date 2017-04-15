@@ -128,6 +128,7 @@ class Welcome extends CI_Controller {
                        $id_category=trim($this->uri->segment(3));
                      //echo br();
                      $tb="tb_product";
+                     $this->db->order_by($tb.".id_product","desc");
                      $data["q"]=$this->db->get_where($tb,array("id_category"=>$id_category));
                      $data["num"]= $data["q"]->num_rows();
                      $this->load->view("subcontent",$data);

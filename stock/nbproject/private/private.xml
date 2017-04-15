@@ -5,6 +5,7 @@
         <group>
             <file>file:/Library/WebServer/Documents/stock/application/views/admin/form_product.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/content.php</file>
+            <file>file:/Library/WebServer/Documents/stock/application/views/subcontent.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/admin/tb_product.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/controllers/welcome.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/home.php</file>

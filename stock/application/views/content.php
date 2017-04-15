@@ -63,7 +63,8 @@
                                            {
                                                $id_category=$row->id_category;
                                                $category=$row->category;
-                                               $a++;                                             
+                                               $a++;      
+                                               $this->db->order_by("id_product","desc");
                                                $q_sub1=$this->db->get_where($tb2,array("id_category"=>$id_category));
                                               $num2=$q_sub1->num_rows();
                                              //echo br();                                          
@@ -74,7 +75,10 @@
                                <?php
                                if( $num2 > 0 )
                                {
-                                   $row=$q_sub1->row();
+                                   
+                                   foreach($q_sub1->result() as $row )
+                                   {     
+                                  // $row=$q_sub1->row();
                                    $code_product=$row->code_product;  //รหัสสินค้า
                                    $product_name=$row->product_name; //ชื่อไฟล์
                                    $name_product=$row->name_product; //ชื่อสินค้า
@@ -178,6 +182,7 @@
                                             </div>
                                  </div>
                                     <?php
+                                   }
                                }
                                     ?>
          <!--  Panel -->
