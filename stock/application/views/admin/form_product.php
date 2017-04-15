@@ -8,15 +8,18 @@
             $('#menu_category').load('<?=base_url()?>index.php/welcome/menu_category');
             
             $('#tb_product').load("<?=base_url()?>index.php/welcome/load_product");
+            
+        //    $('#tab_product').tabs({ active: 1 });
     });
 </script>
 
- 
-                        <div class="tabcontrol2" data-role="tabcontrol">
+ <!-- data-open-target="#tb_product"   -->
+<div class="tabcontrol2" data-role="tabcontrol"  id="tab_product"    data-open-target="#tb_product"   >
                             <ul class="tabs">
                                 <li><a href="#frame_5_1">เพิ่มรายการสินค้า</a></li>
+                                <li><a href="#tb_product"  >รายการสินค้าทั้งหมด</a></li>
                                 <li><a href="#frame_5_2">เพิ่มหมวดหมู่สินค้า</a></li>
-                                <li class="disabled"><a href="">อื่นๆ</a></li>
+                                <li class="disabled"><a href="#">อื่นๆ</a></li>
                             </ul>
                             <div class="frames">
                                 <div class="frame" id="frame_5_1">
@@ -208,11 +211,15 @@
 </form>
                                     <?php  //form_close();?>
                                    
-                                   <span id="tb_product"></span>
+                                 
                                    
                                    
        <!--  TAB  5_1 -->                         
                                 
+                                </div>
+                                
+                                <div class="frame" id="tb_product">                             
+                                        <span id="tb_product"></span>
                                 </div>
                                 <div class="frame" id="frame_5_2">
                                  

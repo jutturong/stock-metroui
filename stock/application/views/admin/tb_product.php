@@ -15,11 +15,8 @@
                                           <th class="sortable-column ">รายละเอียดสินค้า</th>
                                 </tr>
                                 <?php
-                                    $tb_product="tb_product";
-                                    $tbj1="tb_category";
-                                    $this->db->join($tbj1,  $tb_product.".id_category=".$tbj1.".id_category","left"); 
-                                    $q_product=$this->db->get($tb_product);
-                                      $this->db->order_by($tb_product.".id_product","DESC");
+                                  
+                                     // $this->db->order_by($tb_product.".id_product","DESC");
                                     foreach($q_product->result() as $row)
                                     {
                                         $id_product=$row->id_product;
@@ -31,7 +28,7 @@
                                         $number_product=$row->number_product;  //จำนวนสินค้า
                                         $price_product=$row->price_product;  //ราคาสินค้า
                                         $description_product=$row->description_product;  //รายละเอียดสินค้า
-                                    }
+                                    
                                 ?>
                                 <tr>
                                     <td>
@@ -69,7 +66,7 @@
                                     
                                 </tr>
                                 <?php
-                                
+                                    }
                                 ?>
                             </thead>
                                    </table>

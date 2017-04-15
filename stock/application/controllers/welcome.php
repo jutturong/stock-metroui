@@ -90,6 +90,13 @@ class Welcome extends CI_Controller {
                                  $data["content"]="content";
                                 $data["sess_level"]=$this->session->userdata("sess_level");
 
+                                //------------ บันทึกข้อมูลแล้วให้ไปโหลดรายการสินค้าจากหน้า admin --------------------------
+                                //1..    http://localhost/stock/index.php/welcome/home/welcome/load_product  //บันทึกข้อมูลสำเร็จให้โหลดข้อมูลหน้าสินค้า
+                                //2.    http://localhost/stock/index.php/welcome/load_product   //โหลดสินค้าหลังจากบันทึกข้อมูลเสร็จ
+                                /*  $('#content').load('<?=base_url()?>index.php/welcome/form_product');   */
+                                 $data["uri3"]=trim($this->uri->segment(3));
+                                 $data["uri4"]=trim($this->uri->segment(4));
+                                 
                                  $this->load->view("home",$data);
                     }   
                     else
@@ -113,6 +120,22 @@ class Welcome extends CI_Controller {
                              redirect("welcome/index");
                     }
         
+        }
+        public function subcontent() //เลือกรายการย่อยของโปรแกรม
+        {
+              if(      $this->session->userdata("sess_logon")  == 1  )   
+               {   
+                       $id_category=trim($this->uri->segment(3));
+                     //echo br();
+                     $tb="tb_product";
+                     $data["q"]=$this->db->get_where($tb,array("id_category"=>$id_category));
+                     $data["num"]= $data["q"]->num_rows();
+                     $this->load->view("subcontent",$data);
+                }
+                         else
+                    {
+                             redirect("welcome/index");
+                    }
         }
 //http://localhost/stock/index.php/welcome/manageuser
       public    function manageuser()
@@ -158,9 +181,9 @@ class Welcome extends CI_Controller {
       {
               if(      $this->session->userdata("sess_logon")  == 1  )   
                     {    
-           $data["title"]=$this->title;
+                          $data["title"]=$this->title;
         
-           $this->load->view("admin/form_product",$data);
+                           $this->load->view("admin/form_product",$data);
               }
                          else
                     {
@@ -348,16 +371,19 @@ class Welcome extends CI_Controller {
                       "description_product"=>$description_product, //รายละเอียดสินค้า    8
                   );
                   $ck=$this->db->insert($tb,$data);
-                 // $ck=true;
+                 // $ck=true;  //ทดสอบการ insert ข้อมูลสินค้า
                   if( $ck )
                       {
                            //echo 1;
-                             redirect("welcome/home/1");
+                      /*    $('#content').load('<?=base_url()?>index.php/welcome/form_product');   */
+                              redirect("welcome/home/welcome/form_product");
                       }
                       elseif( !$ck )
                           {
                              //echo 0;
-                               redirect("welcome/home/0");
+                             /*    $('#content').load('<?=base_url()?>index.php/welcome/form_product');   */
+                            //   redirect("welcome/home/welcome/load_product");
+                                redirect("welcome/home/welcome/form_product");
                           }
          }
                          else
@@ -369,9 +395,28 @@ class Welcome extends CI_Controller {
       
       public function   load_product()
       {
-          
+             if(    $this->session->userdata("sess_logon")  == 1  )   
+                   {   
            $data["title"]=$this->title;
-           $this->load->view("admin/tb_product",$data);
+           //https://www.codeigniter.com/userguide2/database/active_record.html#select
+           /*
+            SELECT * FROM `tb_product` left join `tb_category` on `tb_product`.`id_category`=`tb_category`.`id_category` 
+            
+            */
+                                   $tb_product="tb_product";
+                                    $tbj1="tb_category";
+                                    $this->db->join($tbj1,  $tb_product.".id_category=".$tbj1.".id_category"); 
+                                    $this->db->order_by( $tb_product.".id_product" , "desc");
+                                    $data["q_product"]=$this->db->get($tb_product);
+                                  
+                                   //  $data["q_product"]= $this->db->query("  SELECT * FROM `tb_product` left join `tb_category` on `tb_product`.`id_category`=`tb_category`.`id_category`  ");
+                                     $this->load->view("admin/tb_product",$data);
+               }
+           else
+               {
+                             redirect("welcome/index");
+               }
+                                     
       }
         
 }

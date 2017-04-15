@@ -11,7 +11,7 @@ $q=$this->user_model->category();
                                 $category=$row->category;
                                 ?>
                                         <li>
-                                               <a href="#" class="dropdown-toggle"><?=$category?></a>          
+                                            <a href="#"  onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/subcontent/<?=$id_category?>');   "  class="dropdown-toggle"><?=$category?></a>          
                                         </li>
                                 <?php
                           }

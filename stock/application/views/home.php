@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
- 
   <title><?=$title?></title>
-  
- 
-
 <?=$this->load->view("import")?>
+
+<!--
+   /*
+     //------------ บันทึกข้อมูลแล้วให้ไปโหลดรายการสินค้าจากหน้า admin --------------------------
+                                //1..    http://localhost/stock/index.php/welcome/home/welcome/load_product  //บันทึกข้อมูลสำเร็จให้โหลดข้อมูลหน้าสินค้า
+                                //2.    http://localhost/stock/index.php/welcome/load_product   //โหลดสินค้าหลังจากบันทึกข้อมูลเสร็จ
+                                
+                                 $data["uri"]=trim($this->uri->segment(4));
+  */
+   -->
+   <script type="text/javascript" >
+        $(function(){
+              var  uri4="<?=$uri4?>";
+              
+              //  โหลดรายการสินค้าทั้งหมดหลังจากทำการเพิ่มรายการสินค้า
+            if(  uri4.length > 0  )
+            {
+                      //http://localhost/stock/index.php/welcome/home/welcome/load_product
+                       $('#content').load('<?=base_url()?>index.php/welcome/form_product');  
+                       $("#tab_product").tabcontrol({
+                           
+                           });      
+            }
+            else{
+                $('#content').load('<?=base_url()?>index.php/welcome/mainconent/'); 
+            }
+             
+        });
+   </script>
+   
   
     <style>
         @media screen and (max-width: 640px) {
@@ -19,8 +45,10 @@
     
 
 </head>
+<!--
 <body  onload="javascript: $('#content').load('<?=base_url()?>index.php/welcome/mainconent/');  ">
-    
+    -->
+    <body>
     <!-- Head menu -->
     <div>
         <?=$this->load->view("header")?>
