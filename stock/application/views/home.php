@@ -15,15 +15,15 @@
    -->
    <script type="text/javascript" >
         $(function(){
+             var  uri3="<?=$uri3?>";
               var  uri4="<?=$uri4?>";
               
               //  โหลดรายการสินค้าทั้งหมดหลังจากทำการเพิ่มรายการสินค้า
             if(  uri4.length > 0  )
             {
                       //http://localhost/stock/index.php/welcome/home/welcome/load_product
-                       $('#content').load('<?=base_url()?>index.php/welcome/form_product');  
+                       $('#content').load('<?=base_url()?>index.php/<?=$uri3?>/<?=$uri4?>');  
                        $("#tab_product").tabcontrol({
-                           
                            });      
             }
             else{

@@ -371,12 +371,12 @@ class Welcome extends CI_Controller {
                       "price_product"=>$price_product,  //ราคาสินค้า   7
                       "description_product"=>$description_product, //รายละเอียดสินค้า    8
                   );
-                  $ck=$this->db->insert($tb,$data);
-                 // $ck=true;  //ทดสอบการ insert ข้อมูลสินค้า
+               //   $ck=$this->db->insert($tb,$data);
+                  $ck=true;  //ทดสอบการ insert ข้อมูลสินค้า
                   if( $ck )
                       {
                            //echo 1;
-                      /*    $('#content').load('<?=base_url()?>index.php/welcome/form_product');   */
+                      /*    $('#content').load('<?=base_url()?>index.php/welcome/form_product');   */                
                               redirect("welcome/home/welcome/form_product");
                       }
                       elseif( !$ck )
@@ -418,6 +418,153 @@ class Welcome extends CI_Controller {
                              redirect("welcome/index");
                }
                                      
+      }
+      
+      public function load_form_update() //โหลดหน้า form เพื่อ update ข้อมูล
+      {
+              if(    $this->session->userdata("sess_logon")  == 1  )   
+                   {   
+                          $id_product=trim($this->uri->segment(3));
+                          $data["id_product"]=trim($this->uri->segment(3));
+                          $tb="tb_product";
+                          if(  $id_product > 0  )
+                              {
+                                    $q=$this->db->get_where($tb,array("id_product"=>$id_product));
+                                    $row=$q->row();
+                                       $data["id_category_query"]=$row->id_category;
+                                     //echo br();
+                                      $data["product_name"]=$row->product_name;
+                                     // echo br();
+                                       $data["code_product"]=$row->code_product;
+                                      //echo br();
+                                       $data["name_product"]=$row->name_product;
+                                      //echo br();
+                                       $data["brand_product"]=$row->brand_product;
+                                     // echo br();
+                                       $data["number_product"]=$row->number_product;
+                                   //   echo br();
+                                       $data["price_product"]=$row->price_product;
+                                      //echo br();
+                                       $data["description_product"]=$row->description_product;
+                                     // echo br();
+                                       $num=$q->num_rows();
+                                      if( $num > 0 )
+                                      {
+                                            //echo "test update";
+                                          $this->load->view("admin/form_update_product",$data);
+                                      }
+                              }
+                    }
+           else
+               {
+                             redirect("welcome/index");
+               }
+      }
+      
+      public function update_product() //ปรับปรุงข้อมูล ผลิตภัณฑ์
+      {
+           if(    $this->session->userdata("sess_logon")  == 1  )   
+                   {   
+               
+               $id_product=trim($this->input->get_post("id_product"));
+               
+                $id_category=trim($this->input->get_post("id_category"));
+                
+                $fname =  $_FILES['file_product']['name'];
+            //echo br();
+               $fsize=$_FILES['file_product']['size'];
+            // echo br();
+                 $ftmpname=$_FILES['file_product']['tmp_name'];
+            // echo br();
+               $ftypename=$_FILES['file_product']['type'];
+             // echo br();     
+                 if (   $_FILES['file_product']['type'] == "image/png"  ||   $_FILES['file_product']['type'] == "image/jpg"  ||   $_FILES['file_product']['type'] == "image/jpeg" ||   $_FILES['file_product']['type'] == "image/gif"  )
+                     {
+
+                                $source = $_FILES['file_product']['tmp_name'];
+                                $target = "uploadfile/".$_FILES['file_product']['name'];
+                                move_uploaded_file( $source, $target );// or die ("Couldn't copy");
+                                $size = getImageSize( $target );
+
+                                /*
+                                $imgstr = "<p><img width=\"$size[0]\" height=\"$size[1]\" ";
+                                $imgstr .= "src=\"$target\" alt=\"uploaded image\" /></p>";
+                                print $imgstr;                             
+                                 */
+                     }
+                     
+                    $code_product=trim($this->input->get_post("code_product")); //รหัสสินค้า
+               //echo br();
+                 $name_product=trim($this->input->get_post("name_product")); //ชื่อสินค้า
+             // echo br();
+                $brand_product=trim($this->input->get_post("brand_product")); //แบรนด์สินค้า
+              // echo br();
+                $number_product=trim($this->input->get_post("number_product"));   //จำนวนชิ้น
+               //echo br();
+                 $price_product=trim($this->input->get_post("price_product"));  //ราคาสินค้า
+                //echo br();
+               $description_product=trim($this->input->get_post("description_product"));   //รายละเอียดสินค้า 
+                  //echo br();
+                  
+                  $tb="tb_product";
+                  
+                if( strlen( $fname ) > 0  )  
+                {     
+                  $data=array(
+                      "id_category"=>$id_category   ,
+                      "product_name"=>$fname ,   //รูปภาพสินค้า    2
+                      "code_product"=>$code_product,  //รหัสสินค้า   3
+                      "name_product"=>$name_product,  //ชื่อสินค้า   4
+                      "brand_product"=>$brand_product,  //แบรนด์สินค้า  5
+                      "number_product"=>$number_product,  //จำนวนชิ้น   6
+                      "price_product"=>$price_product,  //ราคาสินค้า   7
+                      "description_product"=>$description_product, //รายละเอียดสินค้า    8
+                  );
+                       $this->db->where("id_product",$id_product);
+                        $ck=$this->db->update($tb,$data);
+                       if( $ck )
+                       {
+                           //echo 1;
+                              redirect("welcome/home/welcome/form_product");
+                       }
+                       else
+                       {
+                           //echo 0;
+                              redirect("welcome/home/welcome/form_product");
+                       }
+                }
+                else
+                {
+                     $data=array(
+                      "id_category"=>$id_category   ,
+                    //  "product_name"=>$fname ,   //รูปภาพสินค้า    2
+                      "code_product"=>$code_product,  //รหัสสินค้า   3
+                      "name_product"=>$name_product,  //ชื่อสินค้า   4
+                      "brand_product"=>$brand_product,  //แบรนด์สินค้า  5
+                      "number_product"=>$number_product,  //จำนวนชิ้น   6
+                      "price_product"=>$price_product,  //ราคาสินค้า   7
+                      "description_product"=>$description_product, //รายละเอียดสินค้า    8
+                  );
+                      $this->db->where("id_product",$id_product);
+                       $ck=$this->db->update($tb,$data);
+                       if( $ck )
+                       {
+                           //echo 1;
+                              redirect("welcome/home/welcome/form_product");
+                       }
+                       else
+                       {
+                           //echo 0;
+                              redirect("welcome/home/welcome/form_product");
+                       }
+                }
+                  
+                  
+                    }
+                 else
+                     {
+                                   redirect("welcome/index");
+                     }
       }
         
 }

@@ -1,4 +1,29 @@
-  <!-- table  of product --> 
+<div class="input-control text">
+    <input type="hidden" readonly="readonly"   id="up_id_product" />
+    
+</div>
+<!--  onclick="metroDialog.open('#dia_update_product')"-->
+<!-- $.post('<?=base_url()?>index.php/welcome/load_form_update/' + $('#up_id_product').val()  );  -->
+<!-- showMetroDialog('#dialog-uf-1' -->
+    <button class="button"  onclick=" 
+        javascript:
+      var   up_id_product=$('#up_id_product').val();
+      if( up_id_product > 0 )
+      {
+           // $.post('<?=base_url()?>index.php/welcome/load_form_update/' + $('#up_id_product').val()  );
+           // form_update_product
+              showMetroDialog('#dia_update_product');   
+             $('#form_update_product').load('<?=base_url()?>index.php/welcome/load_form_update/' + $('#up_id_product').val() );
+             
+                
+      }
+  
+            
+            "><span class="mif-tools"></span> Update </button>  
+    <button class="button"><span class="mif-superscript"></span> Delete </button>
+
+  
+<!-- table  of product --> 
                                   <!--  <table  class="table striped hovered cell-hovered border bordered">  -->
                                    <table  class="table striped hovered cell-hovered border bordered">
                             <thead>
@@ -34,7 +59,7 @@
                                     <td>
                                         
                                                <label class="input-control radio small-check">
-                                                    <input type="radio" id="<?=$id_product?>" value="<?=$id_product?>" name="ra_product">
+                                                   <input type="radio" id="<?=$id_product?>" value="<?=$id_product?>" name="ra_product"  onclick=" javascript:  $('#up_id_product').val( $('#<?=$id_product?>').val() );   ">
                                                     <span class="check"></span>
                                                     <span class="caption"><?=$category?></span>
                                                 </label>
@@ -71,3 +96,28 @@
                             </thead>
                                    </table>
                              <!-- table  of product -->          
+                             
+ <!-- Dialog  update  form product -->
+ <!-- data-background="bg-pink"  -->
+ <div data-role="dialog" id="dia_update_product"    class="padding5 dialog success"    data-close-button="true"  data-place="top-left" >
+
+<div class="window warning">
+        <div class="window-caption">
+                                    <span class="window-caption-icon">
+                                       <span class="mif-windows"/>
+                                   </span>
+            <span class="window-caption-title">Update รายการสินค้า</span>
+            <span class="btn-min"/>
+            <span class="btn-max"/>
+           <!-- <span class="btn-close"/>-->
+        </div>
+<div class="window-content" style="height: 440px; width: 700px;" >
+   <!--  begin -->
+   <span id="form_update_product"></span>
+   <!-- end -->
+</div>
+    
+</div>
+     
+</div>
+ <!-- Dialog  update  form product -->

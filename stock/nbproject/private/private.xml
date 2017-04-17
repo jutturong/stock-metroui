@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Library/WebServer/Documents/stock/application/models/user_model.php</file>
-            <file>file:/Library/WebServer/Documents/stock/application/views/admin/form_product.php</file>
-            <file>file:/Library/WebServer/Documents/stock/application/views/content.php</file>
-            <file>file:/Library/WebServer/Documents/stock/application/views/subcontent.php</file>
+            <file>file:/Library/WebServer/Documents/stock/application/views/admin/form_update_product.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/controllers/welcome.php</file>
+            <file>file:/Library/WebServer/Documents/stock/application/views/admin/tb_product.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/home.php</file>
-            <file>file:/Library/WebServer/Documents/stock/application/views/header.php</file>
-            <file>file:/Library/WebServer/Documents/stock/application/views/admin/tb_category.php</file>
-            <file>file:/Library/WebServer/Documents/stock/application/views/menu_category.php</file>
+            <file>file:/Library/WebServer/Documents/stock/node_modules/metro-ui/docs/dialog.html</file>
         </group>
     </open-files>
 </project-private>

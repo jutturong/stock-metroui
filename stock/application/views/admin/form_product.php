@@ -224,6 +224,7 @@
                                 <div class="frame" id="frame_5_2">
                                  
                                 <!--  tab 5_2 -->
+                             
                                 <!-- add_category  -->
                                 <form data-role="validator"  id="fr_category">
                                    <div class="grid">   
