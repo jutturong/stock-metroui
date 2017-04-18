@@ -302,6 +302,20 @@ class Welcome extends CI_Controller {
              
       }
       
+      public function   form_category() //โหลด form เพื่อทำการ update category
+      {
+              if(      $this->session->userdata("sess_logon")  == 1    )   
+                    {   
+                       echo  $id_category=trim($this->uri->segment(3));
+                       echo br();
+                  
+                   }  
+                    else
+                    {
+                             redirect("welcome/index");
+                    }
+      }
+      
       public function menu_category()
       {
              if(      $this->session->userdata("sess_logon")  == 1  )   

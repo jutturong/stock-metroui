@@ -19,6 +19,7 @@
                                 <li><a href="#frame_5_1">เพิ่มรายการสินค้า</a></li>
                                 <li><a href="#tb_product"  >รายการสินค้าทั้งหมด</a></li>
                                 <li><a href="#frame_5_2">เพิ่มหมวดหมู่สินค้า</a></li>
+                                 <li ><a href="#frame_category">หมวดหมู่สินค้าทั้งหมด</a></li>
                                 <li class="disabled"><a href="#">อื่นๆ</a></li>
                             </ul>
                             <div class="frames">
@@ -286,5 +287,10 @@
                                 <!--  tab 5_2 -->
                                 </div>
                             </div>
+                                <div class="frame" id="frame_category">
+                                   
+                                      <button class="button"><span class="mif-tools"></span> Update </button>
+                                      <button class="button"><span class="mif-superscript"></span> Delete </button>
+                                </div>
                         </div>
                     </div>
