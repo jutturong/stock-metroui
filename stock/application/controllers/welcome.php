@@ -10,6 +10,7 @@ class Welcome extends CI_Controller {
                      $this->load->model("user_model");
                      $this->load->library('upload');
                      $this->load->helper(array('form', 'url'));
+                     //$this->load->helper('form');
                      
                }
                
@@ -302,18 +303,60 @@ class Welcome extends CI_Controller {
              
       }
       
+      public function update_category()//update category
+      { 
+               if(      $this->session->userdata("sess_logon")  == 1    )   
+                    {   
+                       $up_id_category=$this->input->get_post("up_id_category");
+                     //echo br();
+                      $up_category=trim($this->input->get_post("up_category"));
+                     //echo br();
+                     $tb="tb_category";
+                     $data=array(
+                         "category"=>$up_category,
+                     );
+                         $this->db->where("id_category", $up_id_category );
+                         $ck=$this->db->update($tb,$data);
+                         if( $ck )
+                         {
+                             echo 1;
+                         }else
+                         {
+                             echo 0;
+                         }
+                 }  
+                    else
+                    { 
+                             redirect("welcome/index");
+                    }
+                     
+      }
+      
       public function   form_category() //โหลด form เพื่อทำการ update category
       {
+         // echo "T";     
               if(      $this->session->userdata("sess_logon")  == 1    )   
                     {   
-                       echo  $id_category=trim($this->uri->segment(3));
-                       echo br();
-                  
+                        $id_category=trim($this->uri->segment(3));
+                        $data["id_category"]=trim($this->uri->segment(3));
+                      //echo br();
+                       $tb="tb_category";
+                       $q=$this->db->get_where($tb,array("id_category"=>$id_category));
+                       $num=$q->num_rows();
+                       if( $num > 0 )
+                       {
+                            $row=$q->row();
+                           $data["category"]=$row->category;
+                            //echo br(); 
+                           $this->load->view("admin/form_update_category",$data);
+                       }
                    }  
                     else
                     {
                              redirect("welcome/index");
                     }
+                   
+                    
       }
       
       public function menu_category()

@@ -5,11 +5,11 @@
        javascript: 
             var  up_id_category=$('#up_id_category').val();
             if(  up_id_category > 0 )
-            {
-                   showMetroDialog('#dia_update_category');   
-                   //alert( up_id_category );
-                   $('#form_update_category').load('<?=base_url()?>index.php/welcome/form_category/' +  $('#up_id_category').val()  );
+            {                     
+                     showMetroDialog('#dia_update_category');   
+                     $('#category_content').load('<?=base_url()?>index.php/welcome/form_category/' +  $('#up_id_category').val()  );
             }
+            return false;
         "><span class="mif-tools"></span> Update </button>
  <button class="button"><span class="mif-superscript"></span> Delete </button>
 
@@ -48,7 +48,7 @@
  
  <!-- Dialog  update  form category -->
  <!-- data-background="bg-pink"  -->
- <div data-role="dialog" id="dia_update_category"    class="padding5 dialog success"    data-close-button="true"  >
+ <div data-role="dialog" id="dia_update_category"    class="padding10 dialog "    data-close-button="true"  >
 
 <div class="window warning">
         <div class="window-caption">
@@ -60,10 +60,12 @@
             <span class="btn-max"/>
            <!-- <span class="btn-close"/>-->
         </div>
-<div class="window-content" style="height: 440px; width: 700px;" >
-   <!--  begin -->
-   <span id="form_update_category"></span>
-   <!-- end -->
+<div class="window-content" style="height: 200px; width: 300px;" >
+    
+   
+   <!-- <h1>test content</h1> -->
+    <span id="category_content"></span>
+   
 </div>
     
 </div>

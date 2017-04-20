@@ -99,7 +99,7 @@
                              
  <!-- Dialog  update  form product -->
  <!-- data-background="bg-pink"  -->
- <div data-role="dialog" id="dia_update_product"    class="padding5 dialog success"    data-close-button="true"  data-place="top-left" >
+ <div data-role="dialog" id="dia_update_product"    class="padding5 dialog success"    data-close-button="true"   >
 
 <div class="window warning">
         <div class="window-caption">
@@ -111,7 +111,7 @@
             <span class="btn-max"/>
            <!-- <span class="btn-close"/>-->
         </div>
-<div class="window-content" style="height: 440px; width: 700px;" >
+<div class="window-content" style="height: 440px; width: 720px;" >
    <!--  begin -->
    <span id="form_update_product"></span>
    <!-- end -->

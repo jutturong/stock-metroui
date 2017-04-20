@@ -3,7 +3,7 @@
     {
           //$(".tabcontrol2").tabcontrol();
           //$("#tabcontrol_product").tabcontrol();
-            $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');
+            $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');  //โหลดรายการสินค้าทั้งหมด
            
             $('#menu_category').load('<?=base_url()?>index.php/welcome/menu_category');
             
@@ -226,7 +226,7 @@
                                  
                                 <!--  tab 5_2 -->
                              
-                                <!-- add_category  -->
+                                <!-- form  add_category  -->
                                 <form data-role="validator"  id="fr_category">
                                    <div class="grid">   
                                    <div class="row cell8">
@@ -283,14 +283,18 @@
                                        
                                    </div>    
                                        
-                                    </form>
+                                  
                                 <!--  tab 5_2 -->
                                 </div>
+                                    </form>  
+                                
+                                <!-- form  add_category  -->
+                                
+                                
                             </div>
                                 <div class="frame" id="frame_category">
                                    
-                                      <button class="button"><span class="mif-tools"></span> Update </button>
-                                      <button class="button"><span class="mif-superscript"></span> Delete </button>
+                                      
                                 </div>
                         </div>
                     </div>
