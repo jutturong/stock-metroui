@@ -130,7 +130,7 @@ class Welcome extends CI_Controller {
                      //echo br();
                      $tb="tb_product";
                      $this->db->order_by($tb.".id_product","desc");
-                     $data["q"]=$this->db->get_where($tb,array("id_category"=>$id_category));
+                     $data["q"]=$this->db->get_where($tb,array("id_category"=>$id_category,"allow"=>1));
                      $data["num"]= $data["q"]->num_rows();
                      $this->load->view("subcontent",$data);
                 }
@@ -279,10 +279,12 @@ class Welcome extends CI_Controller {
                if(      $this->session->userdata("sess_logon")  == 1  )   
                     {    
                      $category=trim($this->input->get_post("category"));
+                     
                  // echo br();
                   
                   $data=array(
                       "category"=>$category,
+                      "allow"=>1,
                   );
                   $tb="tb_category";
                   //$this->db->insert('mytable', $data); 
@@ -338,6 +340,10 @@ class Welcome extends CI_Controller {
                       $up_category=trim($this->input->get_post("up_category"));
                      //echo br();
                        $allow=trim($this->input->get_post("allow"));
+                       if( $allow == "" )
+                       {
+                           $allow=0;
+                       }
                      //echo br(); 
                      $tb="tb_category";
                      $data=array(
@@ -404,7 +410,34 @@ class Welcome extends CI_Controller {
                              redirect("welcome/index");
                     }
       }
+      //---- ลบรายการสินค้า
+      public  function  del_product()
+      {
+                if(      $this->session->userdata("sess_logon")  == 1  )   
+                    {    
       
+                             $id_product=trim($this->input->get_post("id_product"));
+                           // echo br();
+                            if(  $id_product > 0 )
+                            {
+                                  $tb="tb_product";
+                                  $this->db->where("id_product",$id_product);
+                                  $ck=$this->db->delete($tb);
+                                  if( $ck )
+                                  {
+                                      echo 1;
+                                  }
+                                  else
+                                  {
+                                      echo 0;
+                                  }
+                            }
+                    }
+                    else
+                    {
+                             redirect("welcome/index");
+                    }
+      }
       //---- เพิ่มรายการสินค้า----------
       public  function insert_product()
       {
@@ -460,8 +493,8 @@ class Welcome extends CI_Controller {
                       "price_product"=>$price_product,  //ราคาสินค้า   7
                       "description_product"=>$description_product, //รายละเอียดสินค้า    8
                   );
-               //   $ck=$this->db->insert($tb,$data);
-                  $ck=true;  //ทดสอบการ insert ข้อมูลสินค้า
+                  $ck=$this->db->insert($tb,$data);
+             //     $ck=true;  //ทดสอบการ insert ข้อมูลสินค้า
                   if( $ck )
                       {
                            //echo 1;

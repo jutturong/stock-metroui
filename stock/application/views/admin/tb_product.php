@@ -20,7 +20,37 @@
   
             
             "><span class="mif-tools"></span> Update </button>  
-    <button class="button"><span class="mif-superscript"></span> Delete </button>
+    <button class="button"
+            onclick="
+                 javascript:
+                 var   up_id_product=$('#up_id_product').val();
+                if( up_id_product > 0 )
+                    {
+                          var  r=confirm(' คุณแน่ใจว่าต้องการลบข้อมูล ');
+                          if (r ==true)
+                          {
+                               //   $('#form_update_product').load('<?=base_url()?>index.php/welcome/load_form_update/' + $('#up_id_product').val() );
+                               $.post('<?=base_url()?>index.php/welcome/del_product/' ,{ id_product : up_id_product } ,function(data)
+                               {
+                                   //  alert(data);
+                                      if( data == 1 )
+                                      {
+                                              alert(' ข้อมูลถูกลบแล้ว ');
+                                              $('#content').load('<?=base_url()?>index.php/welcome/form_product');   
+                                              $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category'); 
+                                      }
+                                      else
+                                      {
+                                               alert(' การลบข้อมูลผิดพลาด ');
+                                              $('#content').load('<?=base_url()?>index.php/welcome/form_product');   
+                                              $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category'); 
+                                      }
+                                    
+                               } );
+                          }
+                    }
+            "
+            ><span class="mif-superscript"></span> Delete </button>
 
   
 <!-- table  of product --> 

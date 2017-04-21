@@ -35,7 +35,7 @@
        <div class="row cell4">
            
              <div class="cell spaces2">
-                                            
+                                            เปิดการทำงาน :
                                            <label class="switch-original">
                                                <?php
                                                   if(  $allow ==1 )
@@ -44,10 +44,10 @@
                                                <input type="checkbox"  value="1"  id="allow" name="allow"  checked="checked" >
                                                 <?php
                                                   }
-                                                  else
+                                                  elseif (  $allow ==0  )
                                                   {
                                                 ?>
-                                                 <input type="checkbox"  value="1"  id="allow" name="allow" checked="checked"  >
+                                                 <input type="checkbox"  value="1"  id="allow" name="allow"   >
                                                 <?php
                                                   }
                                                 ?>
@@ -55,6 +55,8 @@
                                             </label>
                                            ON
                                        </div>
+           
+             
            
        </div>
        

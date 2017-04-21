@@ -16,7 +16,7 @@ class User_model extends CI_Model {
     {
              $tb="tb_category";
             // $this->db->order_by("id_category","desc");
-             return  $this->db->get($tb);
+             return  $this->db->get_where($tb,array("allow"=>1));
     }
     
     
