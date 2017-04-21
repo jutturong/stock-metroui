@@ -303,6 +303,32 @@ class Welcome extends CI_Controller {
              
       }
       
+      public function del_category() //block category
+      {
+            if(      $this->session->userdata("sess_logon")  == 1    )   
+                    {
+                        $id_category=trim($this->input->get_post("id_category"));
+                           $tb="tb_category";
+                           $data=array(
+                               "allow"=>0
+                           );
+                           $this->db->where("id_category",$id_category);
+                          $ck=  $this->db->update($tb,$data);
+                          if( $ck )
+                          {
+                              echo 1;
+                          }
+                          else
+                          {
+                              echo 0;
+                          }
+                    }  
+                    else
+                    { 
+                             redirect("welcome/index");
+                    }
+      }
+
       public function update_category()//update category
       { 
                if(      $this->session->userdata("sess_logon")  == 1    )   
@@ -311,12 +337,16 @@ class Welcome extends CI_Controller {
                      //echo br();
                       $up_category=trim($this->input->get_post("up_category"));
                      //echo br();
+                       $allow=trim($this->input->get_post("allow"));
+                     //echo br(); 
                      $tb="tb_category";
                      $data=array(
                          "category"=>$up_category,
+                         "allow"=>$allow,
                      );
                          $this->db->where("id_category", $up_id_category );
                          $ck=$this->db->update($tb,$data);
+                        
                          if( $ck )
                          {
                              echo 1;
@@ -324,6 +354,7 @@ class Welcome extends CI_Controller {
                          {
                              echo 0;
                          }
+                         
                  }  
                     else
                     { 
@@ -347,6 +378,7 @@ class Welcome extends CI_Controller {
                        {
                             $row=$q->row();
                            $data["category"]=$row->category;
+                           $data["allow"]=$row->allow;
                             //echo br(); 
                            $this->load->view("admin/form_update_category",$data);
                        }

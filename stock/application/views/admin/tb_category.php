@@ -11,13 +11,42 @@
             }
             return false;
         "><span class="mif-tools"></span> Update </button>
- <button class="button"><span class="mif-superscript"></span> Delete </button>
+ <button class="button"
+         onclick="
+           javascript: 
+            var  up_id_category=$('#up_id_category').val();
+                if(  up_id_category > 0 )
+                      {                     
+                               //showMetroDialog('#dia_update_category');   
+                               //$('#category_content').load('<?=base_url()?>index.php/welcome/form_category/' +  $('#up_id_category').val()  );
+                               var  r=confirm(' คุณแน่ใจว่าต้องการ Block รายการนี้ ');
+                              if( r== true)
+                              {
+                                  //$('#category_content').load('<?=base_url()?>index.php/welcome/del_category/' +  $('#up_id_category').val()  );
+                                  $.post('<?=base_url()?>index.php/welcome/del_category' , {  id_category: $('#up_id_category').val() } ,function(data)
+                                  { 
+                                      //alert(data); 
+                                      if( data == 1 )
+                                      {
+                                            alert(' Block ข้อมูลนี้แล้ว ');
+                                            $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');  //โหลดรายการสินค้าทั้งหมด
+                                      }
+                                      else{
+                                          alert(' การ Blockj ข้อมูลนี้ผิดพลาด  ');
+                                      }
+                                  } );
+                              }
+                              return false;
+                      }
+         "
+         ><span class="mif-cross"></span> (Block) </button>
 
 <table  class="table striped hovered cell-hovered border bordered">
                             <thead>
                                 <tr>
                                   <!--  <th class="sortable-column">Column</th> -->
                                     <th class="sortable-column sort-asc">หมวดหมู่สินค้า</th>
+                                   <th class="sortable-column sort-asc">เปิดการใช้งาน</th>
                               <!--      <th class="sortable-column sort-desc">Column</th> -->
                                 </tr>
                                 <?php
@@ -25,6 +54,7 @@
                                    {
                                         $category=$row->category;
                                         $id_category=$row->id_category;
+                                        $allow=$row->allow;
                                         ?>
                                 <tr>
                             <td>
@@ -34,8 +64,22 @@
     <span class="check"></span>
     <span class="caption"><?=$category?></span>
 </label>
+                            </td>
+                            <td>
                                 
-                               
+                                <?php
+                                if( $allow == 1 )
+                                {
+                                ?>
+                              <span class="mif-checkmark  fg-green mif-2x"></span>
+                              <?php
+                                }elseif(  $allow == 0 )
+                                {
+                              ?>
+                                <span class="mif-cross  fg-red mif-2x"></span>
+                              <?php
+                                }
+                              ?>
                             </td>
                                 </tr>
                                        <?php

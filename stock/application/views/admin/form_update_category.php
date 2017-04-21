@@ -24,10 +24,40 @@
                                                            
                                                     
                                             </div>
+                                       
+                                     
                                      
                                        
                                        
-                                          </div>     
+                                          </div>    
+       
+       
+       <div class="row cell4">
+           
+             <div class="cell spaces2">
+                                            
+                                           <label class="switch-original">
+                                               <?php
+                                                  if(  $allow ==1 )
+                                                  {
+                                               ?>
+                                               <input type="checkbox"  value="1"  id="allow" name="allow"  checked="checked" >
+                                                <?php
+                                                  }
+                                                  else
+                                                  {
+                                                ?>
+                                                 <input type="checkbox"  value="1"  id="allow" name="allow" checked="checked"  >
+                                                <?php
+                                                  }
+                                                ?>
+                                                 <span class="check"></span>
+                                            </label>
+                                           ON
+                                       </div>
+           
+       </div>
+       
                                        
                                             <div class="row cell4">
                                            
@@ -35,10 +65,11 @@
                                                 <button class="button success"  type="submit"  onclick="
                                                     //fr_update_category
                                                         javascript:
-                                                                $.post('<?=base_url()?>index.php/welcome/update_category',  { up_id_category: $('#up_id_category').val()  ,  up_category:$('#up_category').val()  }   ,
+                                                                $.post('<?=base_url()?>index.php/welcome/update_category',  { up_id_category: $('#up_id_category').val()  ,  up_category:$('#up_category').val() ,allow : $('#allow').val()  }   ,
                                                                 function(data)
                                                                 { 
-                                                                     //alert(data); 
+                                                                    // alert(data); 
+                                                                     
                                                                      if( data == 1 )
                                                                      {
                                                                           alert('ปรับปรุงข้อมูลสำเร็จ');
@@ -48,6 +79,8 @@
                                                                          alert('ปรับปรุงข้อมูลล้มเหลว');
                                                                           $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');  //โหลดรายการสินค้าทั้งหมด
                                                                      }
+                                                                     
+                                                                     
                                                                } 
                                                                        );
                                                             return false;
@@ -59,6 +92,8 @@
                                                     
                                                    
                                             </div>
+                                                
+                                                
                                                 
                                         </div>
 
