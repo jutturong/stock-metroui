@@ -12,6 +12,19 @@
    $('#zoom_01').retina({zoomValue: 400});
 </script>
 
+
+<script type="text/javascript">  
+    function shopping() //หยิบของใส่ตระกร้า
+    {
+        //alert('t');
+        $(function()
+        {
+              showMetroDialog('#dia_shopping'); 
+        });
+        
+    }
+ </script>
+ 
 <!--  category -->
 <!--     $this->load->model("user_model");  -->
 
@@ -79,6 +92,7 @@
                                    foreach($q_sub1->result() as $row )
                                    {     
                                   // $row=$q_sub1->row();
+                                   $id_product=$row->id_product;  // id
                                    $code_product=$row->code_product;  //รหัสสินค้า
                                    $product_name=$row->product_name; //ชื่อไฟล์
                                    $name_product=$row->name_product; //ชื่อสินค้า
@@ -153,15 +167,31 @@
            <div class="input-control text" data-role="input" >
                                                        <!--<span class="mif-pin  prepend-icon fg-blue mif-1x"></span>-->
                                                        <input type="text" 
-                                                              id="basket1" 
-                                                              name="basket1"  
+                                                              id="basket1<?=$id_product?>" 
+                                                              name="basket1<?=$id_product?>"  
                                                              maxlength="4"
                                                              max="5"
                                                              
                                                              number="true"
                                                              data-validate-func="required, number"
                                                              minlength="1"  style="  width:70px;text-align:center; " />
-                                                       <button class="button" onclick="javascript: $(function(){     $('#value_baseket').html($('#basket1').val());   });  " >
+                                                       <button class="button" onclick="
+                                                               javascript:  
+                                                                   //$(function(){     $('#value_baseket').html($('#basket1').val());   }); 
+                                                                    // showMetroDialog('#dia_shopping');    
+                                                                     var  pice=$('#basket1<?=$id_product?>').val();
+                                                                     if( pice > 0 )
+                                                                     {
+                                                                         
+
+                      var  oop1=' <div class=\'grid\'><div class=\'row\'><div class=\'row cells4><div class=\'input-control text\'>  <input type=\'hidden\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  >  <?=$name_product?>   '   +   pice + ' ชิ้น </div></div></div></div>';
+                     //var  oop2=' <div class=\'input-control text\'> '+  <?=$name_product?>   + '    '  +   pice  +  '  ชิ้น     </div>  ';
+                      $('#sp_shop1').append(oop1);
+                  //    $('#sp_shop2').append(oop2);
+                     
+                                                                            
+                                                                       }
+                                                               " >
                                                            <span class="mif-shopping-basket mif-1x fg-black"></span>
                                                        </button>
              </div>       
@@ -196,4 +226,28 @@
                                
                             </div>
                         </div>
+
+
+<!--  หยิบของใส่ตระกร้า -->
+<div data-role="dialog" id="dia_shopping"    class="padding5 dialog "    data-close-button="true"   >
+     
+<div class="window">
+<div class="window-caption">
+<span class="window-caption-icon">
+<span class="mif-shopping-basket"/>
+</span>
+<span class="window-caption-title">Shopping (หยิบใส่ตระกร้า) </span>
+<span class="btn-min"/>
+<span class="btn-max"/>
+<span class="btn-close"/>
+</div>
+<div class="window-content" style="height: 200px; width: 500px;">
+
+              <span id="sp_shop1"></span>
+
+</div>
+</div>
+  
+</div>
+<!--  หยิบของใส่ตระกร้า -->
 
