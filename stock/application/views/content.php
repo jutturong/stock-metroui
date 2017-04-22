@@ -136,7 +136,7 @@
         </div>
         
         
-        <div class="cell  colspan1">
+        <div class="cell  colspan3">
             <label>สถานะ : 
                 <?php
                    if( $number_product > 0 )
@@ -166,15 +166,9 @@
           
            <div class="input-control text" data-role="input" >
                                                        <!--<span class="mif-pin  prepend-icon fg-blue mif-1x"></span>-->
-                                                       <input type="text" 
-                                                              id="basket1<?=$id_product?>" 
-                                                              name="basket1<?=$id_product?>"  
-                                                             maxlength="4"
-                                                             max="5"
-                                                             
-                                                             number="true"
-                                                             data-validate-func="required, number"
-                                                             minlength="1"  style="  width:70px;text-align:center; " />
+                                                       <input type="text"     id="basket1<?=$id_product?>"   name="basket1<?=$id_product?>"   maxlength="4"    max="5"    number="true"   data-validate-func="required, number"       minlength="1"  style="  width:70px;text-align:center; " />
+
+                                                      <!-- 
                                                        <button class="button" onclick="
                                                                javascript:  
                                                                    //$(function(){     $('#value_baseket').html($('#basket1').val());   }); 
@@ -182,24 +176,48 @@
                                                                      var  pice=$('#basket1<?=$id_product?>').val();
                                                                      if( pice > 0 )
                                                                      {
-                                                                         
-
                       var  oop1=' <div class=\'grid\'><div class=\'row\'><div class=\'row cells4><div class=\'input-control text\'>  <input type=\'hidden\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  >  <?=$name_product?>   '   +   pice + ' ชิ้น </div></div></div></div>';
                      //var  oop2=' <div class=\'input-control text\'> '+  <?=$name_product?>   + '    '  +   pice  +  '  ชิ้น     </div>  ';
                       $('#sp_shop1').append(oop1);
-                  //    $('#sp_shop2').append(oop2);
-                     
-                                                                            
+                  //    $('#sp_shop2').append(oop2);    
                                                                        }
                                                                " >
                                                            <span class="mif-shopping-basket mif-1x fg-black"></span>
                                                        </button>
-             </div>       
+                                                      -->
+                                                      
+                                                     
+                                                     
+                                                      
+             </div>     
+            
+            <div class="input-control text" data-role="input" >
+                   
+            </div>
             
         </div>
-        <div class="cell colspan3">
-            
+        
+        <div class="cell  colspan1">
+               <label class="switch">
+                       <input type="checkbox" id="ck<?=$id_product?>"  onchange="javascript:
+                                var  pice=$('#basket1<?=$id_product?>').val();
+                            
+                                var  ck=$('#ck<?=$id_product?>').val();
+                                if(  pice  >  0  &&  ck >  0 )
+                                {
+                                     // alert('หยิบของลงตะกร้าแล้ว');
+                                   //<div class='input-control text'>
+                                      var  oop1=' <div class=\'grid\'><div class=\'row\'><div class=\'row cells4>        <input type=\'hidden\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  > <span class=\'mif-qrcode  mif-1x\'></span>  <?=$name_product?>   '   +  '<div class=\'input-control text  data-role=\'input\'   \'> <input type=\'text\'  readonly   value=\''  +  pice  +    '\'  style=\'width:70px;text-align:center;\'  \> ชิ้น </div>'   + '</div></div></div>';
+                                     //var  oop2=' <div class=\'input-control text\'> '+  <?=$name_product?>   + '    '  +   pice  +  '  ชิ้น     </div>  ';
+                                     $('#sp_shop1').append(oop1);
+                                      //    $('#sp_shop2').append(oop2);    
+                                }
+                                                          " value="1">
+                                 <span class="check"></span>
+                                 หยิบลงตะกร้า
+                   </label>
         </div>
+       
          
     </div>
                                                           
@@ -234,16 +252,24 @@
 <div class="window">
 <div class="window-caption">
 <span class="window-caption-icon">
-<span class="mif-shopping-basket"/>
+<span class="mif-shopping-basket mif-1x"/>
 </span>
 <span class="window-caption-title">Shopping (หยิบใส่ตระกร้า) </span>
 <span class="btn-min"/>
 <span class="btn-max"/>
 <span class="btn-close"/>
 </div>
-<div class="window-content" style="height: 200px; width: 500px;">
-
-              <span id="sp_shop1"></span>
+<div class="window-content padding10 " style="height: 200px; width: 600px;">
+    <form id="fr_shopping">
+          <span id="sp_shop1"></span>
+          <div class="row">
+              <div class="row cells2">
+                  <button type="button" class="button"><span class="mif-checkmark"></span> จ่ายเงิน </button>
+              </div>             
+          </div>
+      
+    </form>
+            
 
 </div>
 </div>

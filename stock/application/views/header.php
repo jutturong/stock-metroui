@@ -66,13 +66,23 @@
             
              <li>
                  <a href="#"  onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/mainconent/');  "  class="app-bar-element branding">
-             <span class="mif-calendar mif-1x" style="color: white;"></span>
+             <span class="mif-database mif-1x" style="color: white;"></span>
           <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
           
             
         </a>
             </li>
             
+            <!-- หยิบของใส่ตระกร้าสินค้า -->
+             <li>
+                 <a href="#" class="app-bar-element branding" onclick="javascript:    showMetroDialog('#dia_shopping');      ">      
+                     <span id="value_baseket"></span>  
+                     <span class="mif-shopping-basket mif-1x fg-white" ></span>
+                      <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
+                </a>
+         </li>
+          <!-- หยิบของใส่ตระกร้าสินค้า -->
+          
             
     <!--  origin  หมวดหมู่สินค้า -->
                <!--
@@ -206,7 +216,7 @@
             <!-- หมวดหมู่สินค้า database server -->
             <li>
                 <a href="#" class="dropdown-toggle">
-                     <span class="mif-sync-problem  mif-1x fg-black"></span>
+                     <span class="mif-list-numbered  mif-1x fg-white"></span>
                     หมวดหมู่สินค้า
                 </a>
                  <ul class="d-menu" data-role="dropdown" data-no-close="true">
@@ -219,18 +229,8 @@
                  </ul>
             </li>
              <!-- หมวดหมู่สินค้า database server -->
-             
-            
-             <li>
-                 <a href="#" class="app-bar-element branding">
-                                
-                     <span id="value_baseket"></span>  
-
-                     <span class="mif-shopping-basket mif-1x fg-white" onclick="javascript:    showMetroDialog('#dia_shopping');      "></span>
-          <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
-            
-        </a>
-            </li>
+                
+       
             
 
             <li>
