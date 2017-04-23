@@ -209,15 +209,15 @@
                                 var  ck=$('#ck<?=$id_product?>').val();
                                 if(  pice  >  0  &&  ck >  0  &&   pice  <=  number_product  )
                                 {
-                                     // alert('หยิบของลงตะกร้าแล้ว');
-                                   //<div class='input-control text'>
-                                   
-                                      var  oop1=' <div class=\'grid\'><div class=\'row\'><div class=\'row cells4>        <input type=\'hidden\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  > <span class=\'mif-checkmark  fg-green  mif-1x\'></span>  <?=$name_product?>   '   +  '<div class=\'input-control text  data-role=\'input\'   \'> <input type=\'text\'  readonly   value=\''  +  pice  +    '\'  style=\'width:70px;text-align:center;\'  \> ชิ้น   <button  class=\'button cycle-button\'     ><span class=\'mif-cross fg-red \'></span></button>  </div>    '   + '</div>   </div></div>';
-                                      
-                                          //var  oop2=' <div class=\'input-control text\'> '+  <?=$name_product?>   + '    '  +   pice  +  '  ชิ้น     </div>  ';
+       
+                                      var  oop1=' <div class=\'grid\'><div class=\'row\'><div class=\'row cells4>        <input type=\'hidden\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  > <span class=\'mif-checkmark  fg-green  mif-1x\'></span>  <?=$name_product?>   '   +  '<div class=\'input-control text  data-role=\'input\'   \'> <input type=\'text\'  readonly   value=\''  +  pice  +    '\'  style=\'width:70px;text-align:center;\'  \> ชิ้น     </div>    '   + '  <label class=\'input-control checkbox\'><input type=\'checkbox\'   id=\'ck_del<?=$id_product?>\'   name=\'ck_del<?=$id_product?>\'  value=\'<?=$id_product?>\'  onclick=\'   alert(\'t\');  \' > <span class=\'check\'></span> <span class=\'caption\'> <span class=\'mif-cross fg-red \'></span>  </span> </label>   </div>   </div></div>';
                                     
                                         $('#sp_shop1').append(oop1);
-                                      //    $('#sp_shop2').append(oop2);    
+                                        
+                                     
+                                   
+                                  
+                                      
                                 }
                                 else
                                 {
@@ -279,6 +279,7 @@
               <div class="row cells2">  </div>
               <div class="row cells2">
                   <button type="button" class="button"><span class="mif-printer  mif-2x "></span> จ่ายเงิน </button>
+                   <button type="button" class="button"><span class="mif-cross  mif-2x "></span> remove </button>
               </div>             
           </div>
       

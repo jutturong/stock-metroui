@@ -63,19 +63,21 @@
             </li>
             -->
             
-            
+            <!-- หน้าหลักของโปรแกรม -->
              <li>
                  <a href="#"  onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/mainconent/');  "  class="app-bar-element branding">
-             <span class="mif-database mif-1x" style="color: white;"></span>
-          <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
-          
-            
-        </a>
+                         <span class="mif-database mif-1x" style="color: white;"></span>
+                         <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
+                 </a>
             </li>
+             <!-- หน้าหลักของโปรแกรม -->
             
             <!-- หยิบของใส่ตระกร้าสินค้า -->
              <li>
-                 <a href="#" class="app-bar-element branding" onclick="javascript:    showMetroDialog('#dia_shopping');      ">      
+                 <a href="#" class="app-bar-element branding" onclick="javascript:  
+                            // var  load1=$('#content').load('<?=base_url()?>index.php/welcome/mainconent/'); 
+                             showMetroDialog('#dia_shopping');     
+                    ">      
                      <span id="value_baseket"></span>  
                      <span class="mif-shopping-basket mif-1x fg-white" ></span>
                       <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
