@@ -688,6 +688,12 @@ class Welcome extends CI_Controller {
                                    redirect("welcome/index");
                      }
       }
+      
+      public  function  billing()
+      {
+         // echo "T";
+          //echo   trim($this->input->get_post("sh_id2"));
+      }
         
 }
 
