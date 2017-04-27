@@ -167,29 +167,8 @@
            <div class="input-control text" data-role="input" >
                                                        <!--<span class="mif-pin  prepend-icon fg-blue mif-1x"></span>-->
                ระบุจำนวน 
-               <input type="text"   readonly="readonly"  id="basket1<?=$id_product?>"   name="basket1<?=$id_product?>"   maxlength="4"    max="5"    number="true"   data-validate-func="required, number"       minlength="1"  style="  width:70px;text-align:center; " />
-
-                                                      <!-- 
-                                                       <button class="button" onclick="
-                                                               javascript:  
-                                                                   //$(function(){     $('#value_baseket').html($('#basket1').val());   }); 
-                                                                    // showMetroDialog('#dia_shopping');    
-                                                                     var  pice=$('#basket1<?=$id_product?>').val();
-                                                                     if( pice > 0 )
-                                                                     {
-                      var  oop1=' <div class=\'grid\'><div class=\'row\'><div class=\'row cells4><div class=\'input-control text\'>  <input type=\'hidden\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  >  <?=$name_product?>   '   +   pice + ' ชิ้น </div></div></div></div>';
-                     //var  oop2=' <div class=\'input-control text\'> '+  <?=$name_product?>   + '    '  +   pice  +  '  ชิ้น     </div>  ';
-                      $('#sp_shop1').append(oop1);
-                  //    $('#sp_shop2').append(oop2);    
-                                                                       }
-                                                               " >
-                                                           <span class="mif-shopping-basket mif-1x fg-black"></span>
-                                                       </button>
-                                                      -->
-                                                      
-                                                     
-                                                     
-                                                      
+               <input type="text"     id="basket1<?=$id_product?>"   name="basket1<?=$id_product?>"   maxlength="4"    max="5"    number="true"   data-validate-func="required, number"       minlength="1"  style="  width:70px;text-align:center; " />
+                                   
              </div>     
             
             <div class="input-control text" data-role="input" >
@@ -199,40 +178,25 @@
         </div>
         
         <div class="cell  colspan1">
+            
+            <!--
                <label class="switch">
                        <input type="checkbox" id="ck<?=$id_product?>"  onchange="javascript:
-                                   $('#basket1<?=$id_product?>').prop('readonly',false);
+                                  // $('#basket1<?=$id_product?>').prop('readonly',false);
                                    var  pice=$('#basket1<?=$id_product?>').val();
                                 var  number_product= parseInt(<?=$number_product?>);
                                 var  ck=$('#ck<?=$id_product?>').val();
                                 if(  pice  >  0  &&  ck >  0  &&   pice  <=  number_product  )
                                 {
                                        
-                                      //------ex1
+                                 
                                    //      var  oop1=' <div class=\'grid\'><div class=\'row\'><div class=\'row cells4>        <input type=\'hidden\'  name=\'sh_id<?=$id_product?>\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  > <span class=\'mif-checkmark  fg-green  mif-1x\'></span>    <?=$name_product?>   '   +  '<div class=\'input-control text  data-role=\'input\'   \'> <input type=\'text\'  readonly   value=\''  +  pice  +    '\'  style=\'width:70px;text-align:center;\'  \> ชิ้น     </div>    '   + '  <label class=\'input-control checkbox\'>   <input type=\'checkbox\'      id=\'ck_del<?=$id_product?>\'   name=\'ck_del<?=$id_product?>\'  value=\'<?=$id_product?>\'   > <span class=\'check\'></span> <span class=\'caption\'> <span class=\'mif-cross fg-red \'></span>  </span> </label>   </div>   </div></div>';    
                                    var   oop1='  <div  id=\'div<?=$id_product?>\'   class=\'grid\'  >   <span class=\'mif-chevron-right mif-2x \' style=\'color: green;\'></span>     <input type=\'hidden\'  name=\'sh_id<?=$id_product?>\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  >   <?=$name_product?>   <div class=\'input-control text  data-role=\'input\'   \'>  <input type=\'text\'  readonly   value=\''  +  pice  +    '\'  style=\'width:50px;text-align:center;\'  \>   /หน่วย   <button class=\'button\'   type=\'button\'  id=\'btn<?=$id_product?>\'   \'><span class=\'mif-cross   fg-red   \'></span></button>   </div>      </div>  ';
                                           $('#fr_shopping').append(oop1);
                                           
-                                          /*
-                                          $('input:checkbox').change(function()
-                                          { 
-                                              //alert('t'); 
-                                              alert(  $('input:checkbox').val()  );   
-                                          });
-                                          */
+                                       
                                          
-                                         /*
-                                          //  <input type=\'checkbox\'      id=\'ck_del<?=$id_product?>\'   name=\'ck_del<?=$id_product?>\'  value=\'<?=$id_product?>\'  checked=\'checked\' >  
-                                         $('#ck_del<?=$id_product?>').change(function()
-                                         {
-                                              var  r=confirm(' คุณแน่ใจว่าต้องการลบหรือไม่ ');
-                                             if( r )
-                                             {
-                                                 $('#div<?=$id_product?>').remove();
-                                            
-                                             }
-                                         });
-                                         */
+                                        
                                             
                                             $('#btn<?=$id_product?>').click(function()
                                             {
@@ -243,82 +207,8 @@
 
                                                         }
                                             });
-                                                 //name.appendChild(ck);
-                                      //  $('#fr_shopping').append(name);
-                                  //  
-                                 //    var ck=$(document.createElement('<input type=\'checkbox\'  >   '))
-                                   //  $('#fr_shopping').append(ck);
-                                   
-                                   /*
-                                //   https://www.w3schools.com/jsref/dom_obj_checkbox.asp
-                                     var  input2=document.createElement('INPUT');
-                                         input2.setAttribute('type','checkbox');
-                                         input2.setAttribute('id','ck<?=$id_product?>');
-                                         input2.setAttribute('value','<?=$id_product?>');
-                                         input2.setAttribute('checked',true);
-                                 
-                                         
-                                          
-                                       $('#fr_shopping').append(input2);
-                                       
-                                       
-                                      $('input').change(function()
-                                      { 
-                                          //alert('t'); 
-                                          alert( $('input').val()  );
-                                      });
-                                   */
-                               
-                           
-                                  
-                                  /*
-                                  $('#ck<?=$id_product?>').change(function()
-                                  {
-                                      alert('t');
-                                  });
-                                  */
-                                     
-                                        /*
-                                           var  u=document.createElement('LI');
-                                        var  li=document.createTextNode('<?=$name_product?>');
-                                        u.appendChild(li);
-                                       $('#fr_shopping').append(u);
-                                       */
-                                          
-                                         
-                                          
-                                          
-                                    //-----ex2 
-                                      
-                                      /*
-                                        var  input=$('<input>')
-                                                .attr('type','text')
-                                                .attr('id','txt<?=$id_product?>')
-                                                .attr('style','width:70px;text-align:center;\' ')
-                                                .val(pice);
-                                      //  $('#sp_shop1').append(input);
-                                  //  $('#fr_shopping').append(input);
-                                     */
-                                     
-                                     /*
-                                      var  node=document.createElement('LI');
-                                      var  textnode=document.createTextNode('<?=$name_product?>');
-                                      node.appendChild(textnode);
-                                      $('#fr_shopping').append(node);
-                                     */
-                                        
-                                     
-                                   
-                                    
-                                    /*
-                                    var  ck=document.createElement('INPUT');
-                                    ck.setAttribute('type','checkbox');
-                                   ck.setAttribute('checked',true);
-                                    
-                                    $('#fr_shopping').append(ck);
-                                         */ 
-                                          
-                                          
+                                           
+
                                 }
                                 else
                                 {
@@ -329,6 +219,45 @@
                                  <span class="check"></span>
                                  หยิบของลงตะกร้า
                    </label>
+            -->
+            
+            <button class="button"  onclick=" javascript:
+                                  // $('#basket1<?=$id_product?>').prop('readonly',false);
+                                   var  pice=$('#basket1<?=$id_product?>').val();
+                                var  number_product= parseInt(<?=$number_product?>);
+                              //  var  ck=$('#ck<?=$id_product?>').val();
+                            //    if(  pice  >  0  &&  ck >  0  &&   pice  <=  number_product  )
+                                   if(  pice  >  0  &&     pice  <=  number_product  )
+                                {
+                                       
+                                 alert('หยิบของใส่ตะกร้าแล้ว');
+                                   //      var  oop1=' <div class=\'grid\'><div class=\'row\'><div class=\'row cells4>        <input type=\'hidden\'  name=\'sh_id<?=$id_product?>\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  > <span class=\'mif-checkmark  fg-green  mif-1x\'></span>    <?=$name_product?>   '   +  '<div class=\'input-control text  data-role=\'input\'   \'> <input type=\'text\'  readonly   value=\''  +  pice  +    '\'  style=\'width:70px;text-align:center;\'  \> ชิ้น     </div>    '   + '  <label class=\'input-control checkbox\'>   <input type=\'checkbox\'      id=\'ck_del<?=$id_product?>\'   name=\'ck_del<?=$id_product?>\'  value=\'<?=$id_product?>\'   > <span class=\'check\'></span> <span class=\'caption\'> <span class=\'mif-cross fg-red \'></span>  </span> </label>   </div>   </div></div>';    
+                                   var   oop1='  <div  id=\'div<?=$id_product?>\'   class=\'grid\'  >   <span class=\'mif-chevron-right mif-2x \' style=\'color: green;\'></span>     <input type=\'hidden\'  name=\'sh_id<?=$id_product?>\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  >   <?=$name_product?>   <div class=\'input-control text  data-role=\'input\'   \'>  <input type=\'text\'  readonly   value=\''  +  pice  +    '\'  style=\'width:50px;text-align:center;\'  \>   /หน่วย   <button class=\'button\'   type=\'button\'  id=\'btn<?=$id_product?>\'   \'><span class=\'mif-cross   fg-red   \'></span></button>   </div>      </div>  ';
+                                          $('#fr_shopping').append(oop1);
+                                          
+                                       
+                                         
+                                        
+                                            
+                                            $('#btn<?=$id_product?>').click(function()
+                                            {
+                                                  var  r=confirm(' คุณแน่ใจว่าต้องการลบหรือไม่ ');
+                                                        if( r )
+                                                        {
+                                                            $('#div<?=$id_product?>').remove();
+
+                                                        }
+                                            });
+                                           
+
+                                }
+                                else
+                                {
+                                    alert('ยังไม่หยิบของใส่ตะกร้า');
+                                }
+                                                          "><span class="mif-shop fg-green"></span> ใส่ตะกร้า </button>
+
+            
         </div>
        
          
