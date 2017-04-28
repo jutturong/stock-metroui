@@ -106,6 +106,7 @@ if( $num > 0 )
                        <button class="button rounded large-button" onclick="
                            javascript:   
                                  var  pice=$('#basket1<?=$id_product?>').val();
+                             
                                var  number_product= parseInt(<?=$number_product?>);
                                  if(  pice  >  0  &&     pice  <=  number_product  )
                                 {

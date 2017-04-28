@@ -234,11 +234,7 @@
                                    //      var  oop1=' <div class=\'grid\'><div class=\'row\'><div class=\'row cells4>        <input type=\'hidden\'  name=\'sh_id<?=$id_product?>\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  > <span class=\'mif-checkmark  fg-green  mif-1x\'></span>    <?=$name_product?>   '   +  '<div class=\'input-control text  data-role=\'input\'   \'> <input type=\'text\'  readonly   value=\''  +  pice  +    '\'  style=\'width:70px;text-align:center;\'  \> ชิ้น     </div>    '   + '  <label class=\'input-control checkbox\'>   <input type=\'checkbox\'      id=\'ck_del<?=$id_product?>\'   name=\'ck_del<?=$id_product?>\'  value=\'<?=$id_product?>\'   > <span class=\'check\'></span> <span class=\'caption\'> <span class=\'mif-cross fg-red \'></span>  </span> </label>   </div>   </div></div>';    
                                    var   oop1='  <div  id=\'div<?=$id_product?>\'   class=\'grid\'  >   <span class=\'mif-chevron-right mif-2x \' style=\'color: green;\'></span>     <input type=\'hidden\'  name=\'sh_id<?=$id_product?>\'  id=\'sh_id<?=$id_product?>\'  value=\'<?=$id_product?> \'  >   <?=$name_product?>   <div class=\'input-control text  data-role=\'input\'   \'>  <input type=\'text\'  readonly   value=\''  +  pice  +    '\'  style=\'width:50px;text-align:center;\'  \>   /หน่วย   <button class=\'button cycle-button\'   type=\'button\'  id=\'btn<?=$id_product?>\'   \'><span class=\'mif-cancel   fg-red   \'></span></button>   </div>      </div>  ';
                                           $('#fr_shopping').append(oop1);
-                                          
-                                       
-                                         
-                                        
-                                            
+
                                             $('#btn<?=$id_product?>').click(function()
                                             {
                                                   var  r=confirm(' คุณแน่ใจว่าต้องการลบหรือไม่ ');
