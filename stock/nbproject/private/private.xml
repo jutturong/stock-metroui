@@ -5,7 +5,7 @@
             <url>application/views/content.php</url>
             <bookmark id="1">
                 <name/>
-                <line>288</line>
+                <line>179</line>
                 <key/>
             </bookmark>
         </file>
@@ -13,10 +13,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Library/WebServer/Documents/stock/application/views/content.php</file>
+            <file>file:/Library/WebServer/Documents/stock/application/views/subcontent.php</file>
             <file>file:/Library/WebServer/Documents/stock/node_modules/metro-ui/docs/inputs.html</file>
             <file>file:/Library/WebServer/Documents/stock/application/controllers/welcome.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/home.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/header.php</file>
+            <file>file:/Library/WebServer/Documents/stock/application/views/menu_category.php</file>
         </group>
     </open-files>
 </project-private>

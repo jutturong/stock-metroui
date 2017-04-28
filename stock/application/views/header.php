@@ -66,7 +66,7 @@
             <!-- หน้าหลักของโปรแกรม -->
              <li>
                  <a href="#"  onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/mainconent/');  "  class="app-bar-element branding">
-                         <span class="mif-database mif-1x" style="color: white;"></span>
+                         <span class="mif-file-picture mif-2x" style="color: white;"></span>
                          <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
                  </a>
             </li>
@@ -79,7 +79,7 @@
                              showMetroDialog('#dia_shopping');     
                     ">      
                      <span id="value_baseket"></span>  
-                     <span class="mif-shopping-basket mif-1x fg-white" ></span>
+                     <span class="mif-shop mif-2x fg-white" ></span>
                       <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
                 </a>
          </li>
@@ -218,7 +218,7 @@
             <!-- หมวดหมู่สินค้า database server -->
             <li>
                 <a href="#" class="dropdown-toggle">
-                     <span class="mif-list-numbered  mif-1x fg-white"></span>
+                     <span class="mif-table  mif-1x fg-white"></span>
                     หมวดหมู่สินค้า
                 </a>
                  <ul class="d-menu" data-role="dropdown" data-no-close="true">
@@ -249,7 +249,7 @@
 
             <li>
                 <a href="#" class="dropdown-toggle">
-                     <span class="mif-shop mif-1x fg-white"></span>
+                     <span class="mif-truck mif-1x fg-white"></span>
                     บริการลูกค้า</a>
                 <ul class="d-menu" data-role="dropdown" data-no-close="true">
                     <!--<li><a href="http://forum.metroui.org.ua"><span class="mif-bubbles mif-1x fg-white"></span> ติดต่อเราทาง LINE@</a></li>-->
