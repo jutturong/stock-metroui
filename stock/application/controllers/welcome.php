@@ -742,10 +742,79 @@ class Welcome extends CI_Controller {
                      }
       }
       
-      public  function  billing()
+      public  function  billing()  //http://localhost/stock/index.php/welcome/billing
       {
-         // echo "T";
-          //echo   trim($this->input->get_post("sh_id2"));
+          
+          /*
+          //print_r($_POST);
+          foreach($_POST as $var => $val )
+              {
+                   echo $var."=>".$val;
+                   echo br();
+              }
+           */
+          
+          /*
+         product_2=>2 <br />pice_2=>5<br />product_3=>3 <br />pice_3=>2<br />
+           */
+          
+          //http://stackoverflow.com/questions/5345859/php-access-all-post-variables-into-an-array
+          /*
+                     <input type="email" name="emails[]">
+                     <input type="email" name="emails[]">
+                     <input type="email" name="emails[]">
+           
+                       print_r($_POST["emails"]);
+                       foreach ($_POST["emails"] as $email) {
+                       $db_emails = array_map("mysql_real_escape_string", $_POST["emails"]);
+                        // that's an array too
+           */
+         // print_r($_POST["products"]);  // id ของ product
+       //   print_r($_POST["pices"]);    //จำนวนชิ้น
+          
+          
+          /*
+            foreach( $_POST["products"] as  $key => $val   )
+                {
+                     echo $key."=>".$val;
+                     echo br();
+                }
+            */
+          
+          /*
+            foreach($_POST["pices"]  as $key => $val  )
+                {
+                     echo $key."=>".$val;
+                     echo br();
+                }
+           */
+          
+      // $products=$_POST["products"];
+     //  $pices=$_POST["pices"];
+          
+       /*
+       foreach($products as  $key => $val )
+       {
+           echo  $key."=>".$val;
+           echo br();
+       }
+       */
+       
+       /*
+       foreach($pices as $key=>$val )
+       {
+            echo  $key."=>".$val;
+           echo br();
+       }
+      */
+         $shopping=array_combine($_POST["products"], $_POST["pices"]);
+        // print_r($c);
+         foreach($shopping as $key=>$val)
+         {
+             echo  $key."=>".$val;
+             echo br();
+         }
+       
       }
         
 }
