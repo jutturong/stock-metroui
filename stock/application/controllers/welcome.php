@@ -10,6 +10,7 @@ class Welcome extends CI_Controller {
                      $this->load->model("user_model");
                      $this->load->library('upload');
                      $this->load->helper(array('form', 'url'));
+                     //$this->load->helper('date');
                      //$this->load->helper('form');
                      
                }
@@ -46,6 +47,7 @@ class Welcome extends CI_Controller {
                  {
                      $row=$query->row();
                       $sess_data=array(
+                          "sess_id_member"=>$row->id_member,
                           "sess_us"=>$row->us,
                           "sess_ps"=>$row->ps,
                           "sess_level"=>$row->level,  //1=admin, 2=user
@@ -744,7 +746,7 @@ class Welcome extends CI_Controller {
       
       public  function  billing()  //http://localhost/stock/index.php/welcome/billing
       {
-          
+          //echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />";
           /*
           //print_r($_POST);
           foreach($_POST as $var => $val )
@@ -808,11 +810,48 @@ class Welcome extends CI_Controller {
        }
       */
          $shopping=array_combine($_POST["products"], $_POST["pices"]);
+         $sess_id_member=$this->session->userdata("sess_id_member");
         // print_r($c);
+         $tb="tb_billing";
+         
+         date_default_timezone_set("Asia/Bangkok");    
+
          foreach($shopping as $key=>$val)
          {
-             echo  $key."=>".$val;
-             echo br();
+             //echo  $key."=>".$val;
+            // echo br();
+             
+             $data=array(
+                 "id_member"=>$sess_id_member,
+                 "id_product"=>$key,
+                 "prices"=>$val,
+               //  "timerecord"=>"2017-04-26 20:40:00",
+                 "timerecord"=>date("Y-m-d H:s:00"),
+             );
+                print_r($data);
+                
+               // $ck=$this->db->insert($tb,$data);
+                $ck=true;
+                if( $ck )
+                {  
+                    //echo 1;
+                    $tb2="tb_product";
+                    $pro=$this->db->get_where($tb2,array("id_product"=>$key));
+                    $row=$pro->row();
+                     $number_product=$row->number_product;
+                    //echo br();
+                    if( $number_product >  0  &&  $number_product > $val  )
+                    {
+                        echo $exchange=$number_product-$val;
+                        echo br();
+                        
+                    }
+                }
+                else
+                { 
+                    echo 0;
+                }
+                
          }
        
       }

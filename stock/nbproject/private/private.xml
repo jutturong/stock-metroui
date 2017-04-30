@@ -21,6 +21,7 @@
             <file>file:/Library/WebServer/Documents/stock/application/views/sr_product.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/home.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/header.php</file>
+            <file>file:/Library/WebServer/Documents/stock/application/config/autoload.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/menu_category.php</file>
         </group>
     </open-files>
