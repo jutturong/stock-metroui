@@ -24,7 +24,33 @@
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/docs.js"></script>
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/prettify/run_prettify.js"></script>
     <script src="<?=base_url()?>node_modules/metro-ui/docs/js/ga.js"></script>
+    
+    
+    <!-- easyui install --->
+    <!--   
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>easyui/demo/demo.css">  
+    -->
+    <!--
+      <link rel="stylesheet" type="text/css" href="<?=base_url()?>easyui/themes/black/easyui.css">  
+     <script type="text/javascript" src="<?=base_url()?>easyui/jquery.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>easyui/icon.css">
+     <script type="text/javascript" src="<?=base_url()?>easyui/jquery.easyui.min.js"></script> 
+    -->
+    
+     
+   
+    
+    
+<!-- easyui install --->
 
+<!--  jquery  -->
+<!--
+<link rel="stylesheet" href="<?=base_url()?>jqueryui/jquery-ui.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  -->
+<!--  jquery  -->
    
 
  

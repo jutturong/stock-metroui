@@ -122,6 +122,31 @@ class Welcome extends CI_Controller {
                     }
         
         }
+        
+        public function search_product_front() //ค้นหาสินค้าจากระบบการค้าหา
+        {
+              if(      $this->session->userdata("sess_logon")  == 1  )   
+               {   
+                     $id_product=trim($this->uri->segment(3));
+                    // echo br();
+                     if( $id_product > 0  )
+                     {
+                            $tb="tb_product";
+                            $data["q"]=$this->db->get_where($tb,array("id_product"=>$id_product));
+                           $data["num"]= $data["q"]->num_rows();
+                           if( $data["num"]  >  0  )
+                           {
+                                $this->load->view("subcontent",$data);
+                           }
+                           
+                     }
+                   
+              } else
+                    {
+                             redirect("welcome/index");
+                    }
+        }
+        
         public function subcontent() //เลือกรายการย่อยของโปรแกรม
         {
               if(      $this->session->userdata("sess_logon")  == 1  )   
@@ -438,6 +463,34 @@ class Welcome extends CI_Controller {
                              redirect("welcome/index");
                     }
       }
+        //http://localhost/stock/index.php/welcome/search_product
+      public function search_product() //ค้นหารายการสินค้า
+      {
+             $id_category=  $this->uri->segment(3);
+            if( $id_category > 0 )
+            {
+                   $tb="tb_product";
+                   $data["q"]=$this->db->get_where($tb,array("id_category"=>$id_category));
+                   $this->load->view("sr_product",$data);
+            }
+          
+      }
+      
+    //http://localhost/stock/index.php/welcome/json_product
+      public function json_product()
+      {
+                 $tb="tb_product";
+                 $q=$this->db->get($tb);
+                 //   foreach($q->result() as $row)
+                 $rows=array();
+                 foreach($q->result() as $row)
+                 {
+                     $rows[]=$row;
+                 }
+              echo  json_encode($rows);
+               
+      }
+      
       //---- เพิ่มรายการสินค้า----------
       public  function insert_product()
       {

@@ -1,9 +1,66 @@
 <script type="text/javascript">
+        $(function(){
+            $('#cc').combo({
+                required:true,
+                editable:false,
+                label:'Language:',
+                labelPosition:'top'
+            });
+            $('#sp').appendTo($('#cc').combo('panel'));
+            $('#sp input').click(function(){
+                var v = $(this).val();
+                var s = $(this).next('span').text();
+                $('#cc').combo('setValue', v).combo('setText', s).combo('hidePanel');
+            });
+        });
+    </script>
+
+<script type="text/javascript">
      $(function()
      {
          $('#menu_category').load('<?=base_url()?>index.php/welcome/menu_category');
      });
 </script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!--
+<script>
+  $( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+  -->
+ 
 
 <header class="app-bar fixed-top navy" data-role="appbar">
     <div class="container">
@@ -85,6 +142,17 @@
          </li>
           <!-- หยิบของใส่ตระกร้าสินค้า -->
           
+          <!-- ค้นหารายการสินค้า -->
+          <!--  onclick="metroDialog.toggle('#dialog')"  -->
+          <li>
+               <a href="#" class="app-bar-element branding"  onclick="  showMetroDialog('#dia_search_product');   " >      
+                     <span id="value_baseket"></span>  
+                     <span class="mif-camera mif-2x fg-white" ></span>
+                      <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
+                </a>
+          </li>
+         <!-- ค้นหารายการสินค้า -->
+            
             
     <!--  origin  หมวดหมู่สินค้า -->
                <!--
@@ -303,7 +371,7 @@
             
               <li>
                  <a href="<?=base_url()?>index.php/welcome/index/" class="app-bar-element branding">
-             <span class="mif-switch mif-1x fg-black"></span>
+             <span class="mif-switch mif-1x fg-white"></span>
           <!--  <img src="<?=base_url()?>node_modules/metro-ui/docs/images/wn8.png" style="height: 28px; display: inline-block; margin-right: 10px;"> -->
           
             
@@ -319,6 +387,75 @@
 
 
 
+<!--
+<div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save'" style="width:400px;height:200px;padding:10px">
+        The dialog content.
+ </div>
+-->
+
+<!-- Dialog  update  form product -->
+  <div data-role="dialog" id="dia_search_product"   class="padding20 dialog warning"    data-close-button="true" data-type="info" style="width: auto; height: auto; visibility: hidden;">
+ 
+      <!--
+      <h1>Simple dialog</h1>
+    <p>
+        Dialog :: Metro UI CSS - The front-end framework
+        for developing projects on the web in Windows Metro Style.
+    </p>
+      -->
+       <h1>ระบบค้าหาสินค้า</h1>
+      
+      
+    
+      <div class="grid">   
+                                        <div class="row cell8">
+                                                        <div class="cell spaces8">
+                                                                      <label class="block">หมวดหมู่สินค้า</label>
+                                                                      <!-- load_sr_product  -->
+                                                                      <div class="input-control select" onchange="       ">                                                                                                                                  
+                                                                          <select  id="id_category" name="id_category"  onchange="   
+                                                                                     javascript :  
+                                                                                     //http://localhost/stock/index.php/welcome/search_product
+                                                                                       $('#load_sr_product').load('<?=base_url()?>index.php/welcome/search_product/'  + $('#id_category').val()   );
+                                                                                   "  >
+                                                                            <?php
+                                                                            $query=$this->user_model->category();
+                                                                            foreach($query->result() as $row )
+                                                                            {
+                                                                                $id_category=$row->id_category;
+                                                                                $category=$row->category;
+                                                                            ?>
+                                                                            <!--
+                                                                            <option value="1">กระเบื้องหลังคา</option>
+                                                                            <option value="2">ของตกแต่ง</option>
+                                                                            <option value="3">ตัวทำละลาย</option>
+                                                                            -->
+                                                                            <option value="<?=$id_category?>"><?=$category?></option>
+                                                                            <?php
+                                                                            }
+                                                                            ?>
+                                                                        </select>
+                                                             </div>
+                                                        </div>
+                                                   
+                                                                    
+                                                                      <span id="load_sr_product"></span>
+                                                                     
+                                                                                <!--
+                                                                            <div class="input-control select">
+                                                                                <select  id="id_category" name="id_category" >
+
+                                                                                </select>
+                                                                               --> 
+                                                                              
+                                                                             
+                                                                     
+                                                   
+                                        </div>
+      </div>    
+</div>
+
+ <!-- Dialog  update  form product -->
 
 
 

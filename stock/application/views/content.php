@@ -1,3 +1,6 @@
+
+
+
 <script type="text/javascript">
     $(function(){
         $("#tab-control").tabcontrol();
@@ -289,7 +292,7 @@
 
 
 <!--  หยิบของใส่ตระกร้า -->
-<div data-role="dialog" id="dia_shopping"    class="padding5 dialog "    data-close-button="true"   >
+<div data-role="dialog"    id="dia_shopping"    class="padding5 dialog "    data-close-button="true"   >
      
 <div class="window">
 <div class="window-caption">
