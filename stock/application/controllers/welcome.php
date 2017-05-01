@@ -815,7 +815,7 @@ class Welcome extends CI_Controller {
          $tb="tb_billing";
          
          date_default_timezone_set("Asia/Bangkok");    
-
+         $date_record=date("Y-m-d H:s:00");
          foreach($shopping as $key=>$val)
          {
              //echo  $key."=>".$val;
@@ -826,12 +826,12 @@ class Welcome extends CI_Controller {
                  "id_product"=>$key,
                  "prices"=>$val,
                //  "timerecord"=>"2017-04-26 20:40:00",
-                 "timerecord"=>date("Y-m-d H:s:00"),
+                 "timerecord"=>$date_record,
              );
-                print_r($data);
+               // print_r($data);
                 
-               // $ck=$this->db->insert($tb,$data);
-                $ck=true;
+                $ck=$this->db->insert($tb,$data);
+               // $ck=true;
                 if( $ck )
                 {  
                     //echo 1;
@@ -842,9 +842,22 @@ class Welcome extends CI_Controller {
                     //echo br();
                     if( $number_product >  0  &&  $number_product > $val  )
                     {
-                        echo $exchange=$number_product-$val;
-                        echo br();
-                        
+                         $exchange_products=$number_product-$val;
+                       // echo br();
+                           $data2=array(
+                               "number_product"=>$exchange_products,
+                                        );
+                           $this->db->where("id_product",$key);
+                           $ck=$this->db->update($tb2,$data2);
+                         if(  $ck )
+                         {
+                             //echo date("Y-m-d H:s:00/".$sess_id_member."/n");
+                            //echo 1;
+                            echo  $date_record."/".$sess_id_member;
+                         }
+                         else{
+                             echo 0;
+                         }
                     }
                 }
                 else
