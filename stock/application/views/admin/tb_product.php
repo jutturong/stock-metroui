@@ -97,7 +97,7 @@
                                         
                                     </td>
                                     <td>
-                                          <img  id="zoom_01"    srcset='<?=base_url()?>picture/20170119_1060891.jpg 1x, <?=base_url()?>uploadfile/<?=$product_name?> 2x'   class="icon" src="<?=base_url()?>uploadfile/<?=$product_name?>" style="width:150px;"   />
+                                          <img  id="zoom_01"    srcset='<?=base_url()?>uploadfile/<?=$product_name?>  1x, <?=base_url()?>uploadfile/<?=$product_name?> 2x'   class="icon" src="<?=base_url()?>uploadfile/<?=$product_name?>" style="width:150px;"   />
               
                                     </td>
                                     <td>

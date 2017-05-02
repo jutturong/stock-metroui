@@ -256,7 +256,7 @@
                                 }
                                 else
                                 {
-                                    alert('ยังไม่หยิบของใส่ตะกร้า');
+                                    alert('ตรวจสอบการหยิบของใส่ตะกร้า');
                                 }
                                                           "><span class="mif-shop fg-green"></span> ใส่ตะกร้า </button>
 
@@ -329,7 +329,18 @@
               <div class="row cells2">
                   <button type="button" class="button   block-shadow-info text-shadow large-button"  onclick=" 
                          javascript:
-                          $.post('<?=base_url()?>index.php/welcome/billing',  $('#fr_shopping').serialize() , function(data)  {  alert(data);  }  )
+                          $.post('<?=base_url()?>index.php/welcome/billing',  $('#fr_shopping').serialize() , function(data)  
+                            {  
+
+                                        if( data.length > 0 )
+                                        {
+                                              alert(data); 
+                                              var  str=data;
+                                              var  res=str.split('/');
+                                              alert(res[1]);
+                                        }
+
+                            }  );
                           "  >  <span class="mif-barcode  mif-3x "></span>  </button>
                  <!--  <button type="button" class="button" onclick="  "><span class="mif-cross  mif-2x "></span> remove </button> -->
               </div>             

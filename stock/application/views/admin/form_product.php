@@ -7,7 +7,8 @@
            
             $('#menu_category').load('<?=base_url()?>index.php/welcome/menu_category');
             
-            $('#tb_product').load("<?=base_url()?>index.php/welcome/load_product");
+         //   $('#tb_product').load("<?=base_url()?>index.php/welcome/load_product");
+          //     $('#s_product').load("<?=base_url()?>index.php/welcome/load_product");
             
         //    $('#tab_product').tabs({ active: 1 });
     });
@@ -17,9 +18,9 @@
 <div class="tabcontrol2" data-role="tabcontrol"  id="tab_product"    data-open-target="#tb_product"   >
                             <ul class="tabs">
                                 <li><a href="#frame_5_1">เพิ่มรายการสินค้า</a></li>
-                                <li><a href="#tb_product"  >รายการสินค้าทั้งหมด</a></li>
-                                <li><a href="#frame_5_2">เพิ่มหมวดหมู่สินค้า</a></li>
-                                 <li ><a href="#frame_category">หมวดหมู่สินค้าทั้งหมด</a></li>
+                                <li><a href="#tb_product"  onclick="javascript  :    $('#s_product').load('<?=base_url()?>index.php/welcome/load_product');     " >รายการสินค้าทั้งหมด</a></li>
+                                <li><a href="#frame_5_2" onclick="javascript:     $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');  ">เพิ่มหมวดหมู่สินค้า</a></li>
+                             <!--   <li ><a href="#frame_category"  >หมวดหมู่สินค้าทั้งหมด</a></li> -->
                                 <li class="disabled"><a href="#">อื่นๆ</a></li>
                             </ul>
                             <div class="frames">
@@ -220,7 +221,9 @@
                                 </div>
                                 
                                 <div class="frame" id="tb_product">                             
-                                        <span id="tb_product"></span>
+                                    <span id="s_product">
+                                        
+                                    </span>
                                 </div>
                                 <div class="frame" id="frame_5_2">
                                  
@@ -292,9 +295,11 @@
                                 
                                 
                             </div>
-                                <div class="frame" id="frame_category">
-                                   
-                                      
+                                
+                                <!--
+                                <div class="frame" id="frame_category"> 
                                 </div>
+                                -->
+                                
                         </div>
                     </div>

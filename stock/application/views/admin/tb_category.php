@@ -32,7 +32,7 @@
                                             $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');  //โหลดรายการสินค้าทั้งหมด
                                       }
                                       else{
-                                          alert(' การ Blockj ข้อมูลนี้ผิดพลาด  ');
+                                          alert(' การ Block ข้อมูลนี้ผิดพลาด  ');
                                       }
                                   } );
                               }

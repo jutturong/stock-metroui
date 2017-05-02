@@ -417,6 +417,7 @@
                                                                                      javascript :  
                                                                                      //http://localhost/stock/index.php/welcome/search_product
                                                                                        $('#load_sr_product').load('<?=base_url()?>index.php/welcome/search_product/'  + $('#id_category').val()   );
+                                                                                       
                                                                                    "  >
                                                                             <?php
                                                                             $query=$this->user_model->category();

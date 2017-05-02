@@ -126,7 +126,7 @@ if( $num > 0 )
                                 }
                                  else
                                 {
-                                    alert('ยังไม่หยิบของใส่ตะกร้า');
+                                    alert('ตรวจสอบการหยิบของใส่ตะกร้า');
                                 }
                                                       "><span class="mif-shop fg-green"></span> ใส่ตะกร้า </button>
                  </div> 

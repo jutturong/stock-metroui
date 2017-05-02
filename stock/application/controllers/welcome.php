@@ -69,6 +69,7 @@ class Welcome extends CI_Controller {
                       $data["content"]="content";
                      $data["sess_level"]=$this->session->userdata("sess_level");
                      
+                     $data["sess_id_member"]=$this->session->userdata("sess_id_member");
                      
                       $data["sess_logon"]=$this->session->userdata("sess_logon");
                               
@@ -286,20 +287,20 @@ class Welcome extends CI_Controller {
            
       }
       
-      
+      //  localhost/stock/index.php/welcome/load_category
       public function load_category()//โหลดรายการหมวดหมู่สินค้า
       {
           
-                if(      $this->session->userdata("sess_logon")  == 1  )   
-                    {    
+               if(      $this->session->userdata("sess_logon")  == 1  )   
+                   {    
              $tb="tb_category";
             $data["q"]=$this->db->get($tb);
             $this->load->view("admin/tb_category",$data);
-                     }
+                   }
                          else
                     {
-                             redirect("welcome/index");
-                    }
+                            redirect("welcome/index");
+                   }
       }
       public function   add_category() //เพิ่มรายการหมวดหมู่สินค้า
       {
@@ -571,6 +572,7 @@ class Welcome extends CI_Controller {
                     
       }
       
+   //   http://localhost/stock/index.php/welcome/load_product
       public function   load_product()
       {
              if(    $this->session->userdata("sess_logon")  == 1  )   
@@ -583,9 +585,9 @@ class Welcome extends CI_Controller {
             */
                                    $tb_product="tb_product";
                                     $tbj1="tb_category";
-                                    $this->db->join($tbj1,  $tb_product.".id_category=".$tbj1.".id_category"); 
+                                    $this->db->join($tbj1,  $tb_product.".id_category=".$tbj1.".id_category","left"); 
                                     $this->db->order_by( $tb_product.".id_product" , "desc");
-                                    $data["q_product"]=$this->db->get($tb_product);
+                                    $data["q_product"]=$this->db->get_where($tb_product,array($tbj1.".allow"=>1));
                                   
                                    //  $data["q_product"]= $this->db->query("  SELECT * FROM `tb_product` left join `tb_category` on `tb_product`.`id_category`=`tb_category`.`id_category`  ");
                                      $this->load->view("admin/tb_product",$data);
@@ -746,51 +748,7 @@ class Welcome extends CI_Controller {
       
       public  function  billing()  //http://localhost/stock/index.php/welcome/billing
       {
-          //echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />";
-          /*
-          //print_r($_POST);
-          foreach($_POST as $var => $val )
-              {
-                   echo $var."=>".$val;
-                   echo br();
-              }
-           */
-          
-          /*
-         product_2=>2 <br />pice_2=>5<br />product_3=>3 <br />pice_3=>2<br />
-           */
-          
           //http://stackoverflow.com/questions/5345859/php-access-all-post-variables-into-an-array
-          /*
-                     <input type="email" name="emails[]">
-                     <input type="email" name="emails[]">
-                     <input type="email" name="emails[]">
-           
-                       print_r($_POST["emails"]);
-                       foreach ($_POST["emails"] as $email) {
-                       $db_emails = array_map("mysql_real_escape_string", $_POST["emails"]);
-                        // that's an array too
-           */
-         // print_r($_POST["products"]);  // id ของ product
-       //   print_r($_POST["pices"]);    //จำนวนชิ้น
-          
-          
-          /*
-            foreach( $_POST["products"] as  $key => $val   )
-                {
-                     echo $key."=>".$val;
-                     echo br();
-                }
-            */
-          
-          /*
-            foreach($_POST["pices"]  as $key => $val  )
-                {
-                     echo $key."=>".$val;
-                     echo br();
-                }
-           */
-          
       // $products=$_POST["products"];
      //  $pices=$_POST["pices"];
           
@@ -813,37 +771,30 @@ class Welcome extends CI_Controller {
          $sess_id_member=$this->session->userdata("sess_id_member");
         // print_r($c);
          $tb="tb_billing";
-         
          date_default_timezone_set("Asia/Bangkok");    
          $date_record=date("Y-m-d H:s:00");
          foreach($shopping as $key=>$val)
          {
              //echo  $key."=>".$val;
             // echo br();
-             
              $data=array(
                  "id_member"=>$sess_id_member,
                  "id_product"=>$key,
                  "prices"=>$val,
-               //  "timerecord"=>"2017-04-26 20:40:00",
                  "timerecord"=>$date_record,
              );
-               // print_r($data);
-                
                 $ck=$this->db->insert($tb,$data);
-               // $ck=true;
                 if( $ck )
                 {  
-                    //echo 1;
                     $tb2="tb_product";
                     $pro=$this->db->get_where($tb2,array("id_product"=>$key));
                     $row=$pro->row();
                      $number_product=$row->number_product;
-                    //echo br();
+                  
                     if( $number_product >  0  &&  $number_product > $val  )
                     {
                          $exchange_products=$number_product-$val;
-                       // echo br();
+                   
                            $data2=array(
                                "number_product"=>$exchange_products,
                                         );
@@ -851,18 +802,16 @@ class Welcome extends CI_Controller {
                            $ck=$this->db->update($tb2,$data2);
                          if(  $ck )
                          {
-                             //echo date("Y-m-d H:s:00/".$sess_id_member."/n");
-                            //echo 1;
-                            echo  $date_record."/".$sess_id_member;
+                            echo  $date_record;
                          }
                          else{
-                             echo 0;
+                            // echo 0;
                          }
                     }
                 }
                 else
                 { 
-                    echo 0;
+                   // echo 0;
                 }
                 
          }
