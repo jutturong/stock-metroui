@@ -783,13 +783,17 @@ class Welcome extends CI_Controller {
                  "prices"=>$val,
                  "timerecord"=>$date_record,
              );
-                $ck=$this->db->insert($tb,$data);
-                if( $ck )
+                $ck_bill=$this->db->insert($tb,$data);
+           //  $ck_=true;
+                if( $ck_bill )
                 {  
                     $tb2="tb_product";
                     $pro=$this->db->get_where($tb2,array("id_product"=>$key));
                     $row=$pro->row();
                      $number_product=$row->number_product;
+                     $price_product=$row->price_product;  //ราคาสินค้า
+                     
+                     $totol_point=$val * $price_product; //ตัดราคาจำนวนแต้มที่เหลือ
                   
                     if( $number_product >  0  &&  $number_product > $val  )
                     {
@@ -799,14 +803,29 @@ class Welcome extends CI_Controller {
                                "number_product"=>$exchange_products,
                                         );
                            $this->db->where("id_product",$key);
-                           $ck=$this->db->update($tb2,$data2);
-                         if(  $ck )
-                         {
-                            echo  $date_record;
-                         }
-                         else{
-                            // echo 0;
-                         }
+                           $ck_product=$this->db->update($tb2,$data2);
+                           
+                           // จะตัดแต้มของผู้ซื้อของ
+                           $tb_mem="tb_member";
+                           $q_mem=$this->db->get_where($tb_mem , array("id_member"=>$sess_id_member ));
+                 
+                         $row=$q_mem->row();
+                         $point=$row->point;  //แต้มปัจจุบันของ user
+                         $current_point= $point -  $totol_point;  //ตัดแต้มของ user หลังจากซื้อของเสร็จ
+                           
+                         $data3=array(
+                             "point"=>$current_point,
+                         );
+                         
+                         $this->db->where("id_member",$sess_id_member);
+                         $ck_member=$this->db->update($tb_mem,$data3);
+                         
+                         if( $ck_product  &&  $ck_member )  
+                            {
+                                 //echo $date_record;
+                                 echo 1;
+                            }
+                           
                     }
                 }
                 else

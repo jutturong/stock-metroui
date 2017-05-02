@@ -16,12 +16,12 @@
             <file>file:/Library/WebServer/Documents/stock/application/views/import.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/subcontent.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/admin/form_product.php</file>
-            <file>file:/Library/WebServer/Documents/stock/node_modules/metro-ui/docs/inputs.html</file>
             <file>file:/Library/WebServer/Documents/stock/application/controllers/welcome.php</file>
+            <file>file:/Library/WebServer/Documents/stock/application/views/admin/tb_product.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/sr_product.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/home.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/header.php</file>
-            <file>file:/Library/WebServer/Documents/stock/application/config/autoload.php</file>
+            <file>file:/Library/WebServer/Documents/stock/application/views/admin/tb_category.php</file>
             <file>file:/Library/WebServer/Documents/stock/application/views/menu_category.php</file>
         </group>
     </open-files>

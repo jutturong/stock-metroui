@@ -230,7 +230,7 @@
                                 var  number_product= parseInt(<?=$number_product?>);
                               //  var  ck=$('#ck<?=$id_product?>').val();
                             //    if(  pice  >  0  &&  ck >  0  &&   pice  <=  number_product  )
-                                   if(  pice  >  0  &&     pice  <=  number_product  )
+                                   if(  pice  >  0  &&     number_product > 0  )
                                 {
                                        
                                  alert('หยิบของใส่ตะกร้าแล้ว');
@@ -331,7 +331,8 @@
                          javascript:
                           $.post('<?=base_url()?>index.php/welcome/billing',  $('#fr_shopping').serialize() , function(data)  
                             {  
-
+                                       alert(data);
+                                     /*
                                         if( data.length > 0 )
                                         {
                                               alert(data); 
@@ -339,6 +340,7 @@
                                               var  res=str.split('/');
                                               alert(res[1]);
                                         }
+                                        */
 
                             }  );
                           "  >  <span class="mif-barcode  mif-3x "></span>  </button>
