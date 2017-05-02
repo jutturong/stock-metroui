@@ -359,7 +359,7 @@
                     <li><a  href="#"   onclick="javascript: $('#content').load('<?=base_url()?>index.php/welcome/manageuser');   "   ><span class="mif-user-plus mif-1x fg-black"></span> Manage User</a></li>
                     <li><a href="#"><span class="mif-equalizer mif-1x fg-black"></span> Billing ร้านค้า/ลูกค้า</a></li>
                     <li class="divider"></li>
-                    <li><a href="#"  onclick="javascript:  $('#content').load('<?=base_url()?>index.php/welcome/form_product');   $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category'); "  ><span class="mif-floppy-disk mif-1x fg-black"></span> เพิ่มรายการสินค้า </a></li>
+                    <li><a href="#"  onclick="javascript:  $('#content').load('<?=base_url()?>index.php/welcome/form_product');   $('#tb_category').load('<?=base_url()?>index.php/welcome/load_category');  $('#s_product').load('<?=base_url()?>index.php/welcome/load_product'); "  ><span class="mif-floppy-disk mif-1x fg-black"></span> เพิ่มรายการสินค้า </a></li>
                 </ul>
                 
                 

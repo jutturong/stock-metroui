@@ -8,14 +8,14 @@
             $('#menu_category').load('<?=base_url()?>index.php/welcome/menu_category');
             
          //   $('#tb_product').load("<?=base_url()?>index.php/welcome/load_product");
-          //     $('#s_product').load("<?=base_url()?>index.php/welcome/load_product");
+            $('#s_product').load("<?=base_url()?>index.php/welcome/load_product");
             
         //    $('#tab_product').tabs({ active: 1 });
     });
 </script>
 
  <!-- data-open-target="#tb_product"   -->
-<div class="tabcontrol2" data-role="tabcontrol"  id="tab_product"    data-open-target="#tb_product"   >
+<div class="tabcontrol2" data-role="tabcontrol"  id="tab_product"    data-open-target="#frame_5_1"   >
                             <ul class="tabs">
                                 <li><a href="#frame_5_1">เพิ่มรายการสินค้า</a></li>
                                 <li><a href="#tb_product"  onclick="javascript  :    $('#s_product').load('<?=base_url()?>index.php/welcome/load_product');     " >รายการสินค้าทั้งหมด</a></li>
