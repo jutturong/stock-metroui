@@ -748,11 +748,15 @@ class Welcome extends CI_Controller {
       
       public  function  billing()  //http://localhost/stock/index.php/welcome/billing
       {
-          //http://stackoverflow.com/questions/5345859/php-access-all-post-variables-into-an-array
-      // $products=$_POST["products"];
-     //  $pices=$_POST["pices"];
+        
+          if(    $this->session->userdata("sess_logon")  == 1  )   
+                   {   //--------- if
+     
           
        /*
+          //http://stackoverflow.com/questions/5345859/php-access-all-post-variables-into-an-array
+        //  $pices=$_POST["pices"];
+         // $products=$_POST["products"];
        foreach($products as  $key => $val )
        {
            echo  $key."=>".$val;
@@ -767,73 +771,81 @@ class Welcome extends CI_Controller {
            echo br();
        }
       */
+          
          $shopping=array_combine($_POST["products"], $_POST["pices"]);
          $sess_id_member=$this->session->userdata("sess_id_member");
-        // print_r($c);
+     
          $tb="tb_billing";
          date_default_timezone_set("Asia/Bangkok");    
          $date_record=date("Y-m-d H:s:00");
-         foreach($shopping as $key=>$val)
+         foreach($shopping as $key=>$val)  //echo  $key."=>".$val;    // echo br();
          {
-             //echo  $key."=>".$val;
-            // echo br();
              $data=array(
                  "id_member"=>$sess_id_member,
                  "id_product"=>$key,
                  "prices"=>$val,
                  "timerecord"=>$date_record,
              );
-                $ck_bill=$this->db->insert($tb,$data);
-           //  $ck_=true;
-                if( $ck_bill )
+             
+             //-------- session การเรียกใช้งาน time---------
+             $sess_time=array(
+                 "sess_timerecord"=>$date_record,
+             );
+             
+             $this->session->set_userdata($sess_time);
+             $this->session->userdata("sess_timerecord"); //ทดสอบการเรียกใช้งาน
+             
+                //-------- session การเรียกใช้งาน time---------
+             
+                $ck_bill=$this->db->insert($tb,$data);         
+                if( $ck_bill == true )
                 {  
                     $tb2="tb_product";
                     $pro=$this->db->get_where($tb2,array("id_product"=>$key));
                     $row=$pro->row();
                      $number_product=$row->number_product;
                      $price_product=$row->price_product;  //ราคาสินค้า
-                     
                      $totol_point=$val * $price_product; //ตัดราคาจำนวนแต้มที่เหลือ
                   
                     if( $number_product >  0  &&  $number_product > $val  )
                     {
-                         $exchange_products=$number_product-$val;
-                   
+                          $exchange_products=$number_product-$val;
                            $data2=array(
                                "number_product"=>$exchange_products,
                                         );
                            $this->db->where("id_product",$key);
                            $ck_product=$this->db->update($tb2,$data2);
-                           
                            // จะตัดแต้มของผู้ซื้อของ
                            $tb_mem="tb_member";
-                           $q_mem=$this->db->get_where($tb_mem , array("id_member"=>$sess_id_member ));
-                 
+                           $q_mem=$this->db->get_where($tb_mem , array("id_member"=>$sess_id_member ));            
                          $row=$q_mem->row();
                          $point=$row->point;  //แต้มปัจจุบันของ user
-                         $current_point= $point -  $totol_point;  //ตัดแต้มของ user หลังจากซื้อของเสร็จ
-                           
+                         $current_point= $point -  $totol_point;  //ตัดแต้มของ user หลังจากซื้อของเสร็จ 
                          $data3=array(
                              "point"=>$current_point,
                          );
-                         
                          $this->db->where("id_member",$sess_id_member);
-                         $ck_member=$this->db->update($tb_mem,$data3);
-                         
+                         $ck_member=$this->db->update($tb_mem,$data3);                
                          if( $ck_product  &&  $ck_member )  
                             {
                                  //echo $date_record;
-                                 echo 1;
+                                  //echo 1;
+                                  return true;
+                                  //echo br();
+                                  //echo  1;
                             }
                            
                     }
                 }
                 else
                 { 
-                   // echo 0;
+                    //echo 0;
+                    return false;
                 }
                 
          }
+         
+                   }//------------end if----------
        
       }
         
