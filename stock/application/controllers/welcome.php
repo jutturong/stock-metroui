@@ -787,18 +787,12 @@ class Welcome extends CI_Controller {
                  "timerecord"=>$date_record,
              );
              
-             //-------- session การเรียกใช้งาน time---------
-             $sess_time=array(
-                 "sess_timerecord"=>$date_record,
-             );
              
-             $this->session->set_userdata($sess_time);
-             $this->session->userdata("sess_timerecord"); //ทดสอบการเรียกใช้งาน
              
                 //-------- session การเรียกใช้งาน time---------
              
                 $ck_bill=$this->db->insert($tb,$data);         
-                if( $ck_bill == true )
+                if( $ck_bill  )
                 {  
                     $tb2="tb_product";
                     $pro=$this->db->get_where($tb2,array("id_product"=>$key));
@@ -829,18 +823,24 @@ class Welcome extends CI_Controller {
                          if( $ck_product  &&  $ck_member )  
                             {
                                  //echo $date_record;
-                                  //echo 1;
-                                  return true;
+                             //-------- session การเรียกใช้งาน time---------
+                                            $sess_time=array(
+                                                "sess_timerecord"=>$date_record,
+                                            );
+                                            $this->session->set_userdata($sess_time);
+                                         //   $this->session->userdata("sess_timerecord"); //ทดสอบการเรียกใช้งาน
+                                  echo 1;
                                   //echo br();
-                                  //echo  1;
+                                  
                             }
-                           
+                             
                     }
                 }
                 else
                 { 
-                    //echo 0;
-                    return false;
+                    echo   "";
+                   // echo br();
+                   
                 }
                 
          }

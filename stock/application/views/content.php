@@ -331,17 +331,30 @@
                          javascript:
                           $.post('<?=base_url()?>index.php/welcome/billing',  $('#fr_shopping').serialize() , function(data)  
                             {  
-                                       alert(data);
-                                     /*
-                                        if( data.length > 0 )
+                                      // alert(data);
+                                        if(   data != ''  )
                                         {
-                                              alert(data); 
-                                              var  str=data;
-                                              var  res=str.split('/');
-                                              alert(res[1]);
+                                             var   sess_timerecord= '<?=@$this->session->userdata("sess_timerecord")?>';  // เวลาสำหรับการเรียก query ใน table สำหรับการออกใบเสร็จ
+                                             var  sess_id_member= '<?=@$this->session->userdata("sess_id_member")?>';  //id ของสมาชิกสำหรับการ query ใน table ในการออกบิล
+                                          //   var  url='<?=base_url()?>report_pdf/stock/dbreport.php?sess_timerecord=' +  sess_timerecord + '&sess_id_member='  +   sess_id_member ; 
+                                                   var  URL='<?=base_url()?>report_pdf/stock/query_stock.php?sess_timerecord=' +  sess_timerecord + '&sess_id_member='  +   sess_id_member ; 
+                                               //  alert(url);
+                                           
+                                            var strWindowFeatures = 'location=yes,height=570,width=520,scrollbars=yes,status=yes';
+                                            //window.open(URL, '', strWindowFeatures);
+                                            //window.open(URL,'mywindow','width=400,height=200')
+                                            //  window.open(url, '_blank',  'toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400' );
+                                            if( sess_timerecord != ''  &&   sess_id_member != ''  )
+                                            {
+                                                  window.location.assign(URL);
+                                            }
+                                             
+                                              //ผลลัพธ์ที่ได้คือ http://localhost/stock/report_pdf/stock/query_stock.php?sess_timerecord=2017-05-03%2017:02:00&sess_id_member=1
                                         }
-                                        */
-
+                                        else
+                                        {
+                                            alert(' ระบบหยิบสินค้าผิดพลาด ');
+                                        }
                             }  );
                           "  >  <span class="mif-barcode  mif-3x "></span>  </button>
                  <!--  <button type="button" class="button" onclick="  "><span class="mif-cross  mif-2x "></span> remove </button> -->
