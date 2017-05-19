@@ -340,7 +340,7 @@
                                       
                                           //    var  URL='<?=base_url()?>report_pdf/stock/query_stock.php?sess_timerecord=' +  sess_timerecord + '&sess_id_member='  +   sess_id_member ; 
                                          var  URL='<?=base_url()?>report_pdf/stock/query_stock.php?sess_timerecord=<?=@$this->session->userdata('sess_timerecord')?>&sess_id_member=<?=@$this->session->userdata("sess_id_member")?>';  
-                                         window.open(URL,'_blank');
+                                         window.open(URL,'_blank','width=600,height=750');
                                        //  window.location.assign(URL,'_blank');
                                       
                                    //   window.location.href(URL);  
