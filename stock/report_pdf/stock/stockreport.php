@@ -266,11 +266,14 @@ $pdf->Cell(  15  ,  6 , iconv( 'UTF-8','cp874' , '' ),LBR,1,'C',false);
       $name_product=$row2->name_product;  // ขื่อสินค้า
      // $str_name_product=substr($name_product,10);
       $price_product=$row2->price_product; // ราคาสินค้า
-     
+      $code_product=$row2->code_product;  //รหัสินค้า
       
       $pdf->setXY( $x1+2 , $yy );
       $pdf->SetFont('angsana','',9);
-      $pdf->Cell(  30  ,  6 , iconv( 'UTF-8','cp874' , $name_product  )  ,LBR,1,'L',false);
+     // $pdf->Cell(  30  ,  6 , iconv( 'UTF-8','cp874' , $name_product  )  ,LBR,1,'L',false);
+     
+     
+      $pdf->Cell(  30  ,  6 , iconv( 'UTF-8','tis620' , $code_product )  ,LBR,1,'L',false);
       
       //------จำนวนสินค้า----------
       $prices=$row->prices;
