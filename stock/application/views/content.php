@@ -332,7 +332,8 @@
                           $.post('<?=base_url()?>index.php/welcome/billing',  $('#fr_shopping').serialize() , function(data)  
                             {  
                                       // alert(data);
-                                       if(   data  != ''  )
+                                   //    if(   data  != ''  )
+                                   if( data.length > 0 )
                                         { //begin if
                                          //    var   sess_timerecord= '<?=@$this->session->userdata("sess_timerecord")?>';  // เวลาสำหรับการเรียก query ใน table สำหรับการออกใบเสร็จ
                                          //    var  sess_id_member= '<?=@$this->session->userdata("sess_id_member")?>';  //id ของสมาชิกสำหรับการ query ใน table ในการออกบิล

@@ -751,35 +751,17 @@ class Welcome extends CI_Controller {
         
           if(    $this->session->userdata("sess_logon")  == 1  )   
                    {   //--------- if
-     
-          
-       /*
-          //http://stackoverflow.com/questions/5345859/php-access-all-post-variables-into-an-array
-        //  $pices=$_POST["pices"];
-         // $products=$_POST["products"];
-       foreach($products as  $key => $val )
-       {
-           echo  $key."=>".$val;
-           echo br();
-       }
-       */
-       
-       /*
-       foreach($pices as $key=>$val )
-       {
-            echo  $key."=>".$val;
-           echo br();
-       }
-      */
-          
+  
          $shopping=array_combine($_POST["products"], $_POST["pices"]);
          $sess_id_member=$this->session->userdata("sess_id_member");
      
          $tb="tb_billing";
-         date_default_timezone_set("Asia/Bangkok");    
-         $date_record=date("Y-m-d H:s:00");
+      
          foreach($shopping as $key=>$val)  //echo  $key."=>".$val;    // echo br();
          {
+                date_default_timezone_set("Asia/Bangkok");    
+              $date_record=date("Y-m-d H:s:00");
+         
              $data=array(
                  "id_member"=>$sess_id_member,
                  "id_product"=>$key,
@@ -787,8 +769,7 @@ class Welcome extends CI_Controller {
                  "timerecord"=>$date_record,
              );
              
-             
-             
+
                 //-------- session การเรียกใช้งาน time---------
              
                 $ck_bill=$this->db->insert($tb,$data);         

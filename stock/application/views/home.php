@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -13,6 +15,12 @@
                                  $data["uri"]=trim($this->uri->segment(4));
   */
    -->
+   
+<script type="text/javascript">
+   // location.reload(); 
+</script> 
+
+
    <script type="text/javascript" >
         $(function(){
              var  uri3="<?=$uri3?>";

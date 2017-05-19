@@ -1,7 +1,7 @@
 <?php
 require_once("../config.php");
 require_once("pdf_class.php"); //class PDF
-
+// require_once("stockreport.php");  // require สำหรับการทำ report PDF
 
 class  query2 #// case 2 Non-compliance,ADR,Midication errors,DRPs
 {
@@ -44,11 +44,23 @@ class  query2 #// case 2 Non-compliance,ADR,Midication errors,DRPs
     $sess_timerecord=$_GET["sess_timerecord"]; //เวลาในการเรียก query
   //echo "<br>";
     $sess_id_member=$_GET["sess_id_member"];  // id  ของสมาชิกสำหรับ การ query 
-if( $sess_timerecord != ""  &&  $sess_id_member != "" )
-{
-    require_once("stockreport.php");  // require สำหรับการทำ report PDF
-}
+
+
+            
+            if( $sess_timerecord == "" )  
+            {
+                date_default_timezone_set("Asia/Bangkok");    
+                $sess_timerecord=date("Y-m-d H:s:00");
+
+            }
+
+
+          if( $sess_timerecord != ""  &&  $sess_id_member != "" )
+          {
+              require_once("stockreport.php");  // require สำหรับการทำ report PDF
+          }
   
+              
  
    
     
